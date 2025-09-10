@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\User;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\User;
 
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Shared\UpdateProfileRequest;
-use Modules\DesaModuleTemplate\Services\User\ProfileService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Shared\UpdateProfileRequest;
+use Modules\ModuleRelease2\Services\User\ProfileService;
 
 class ProfileController extends Controller
 {
@@ -17,16 +17,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $role = desa_module_template_auth_user()->role;
+        $role = module_release_2_auth_user()->role;
 
         $data = [
             'title' => 'Profile',
-            'user' => desa_module_template_auth_user(),
+            'user' => module_release_2_auth_user(),
             'role' => $role,
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.user.index'),
+                    'url' => route(module_release_2_meta('kebab').'.user.index'),
                 ],
                 [
                     'name' => 'Profile',
@@ -35,7 +35,7 @@ class ProfileController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.shared.profile.index', $data);
+        return view(module_release_2_meta('kebab').'::web.shared.profile.index', $data);
     }
 
     /**
@@ -45,10 +45,10 @@ class ProfileController extends Controller
     {
         $data = [
             'title' => 'Edit Profile',
-            'user' => desa_module_template_auth_user(),
+            'user' => module_release_2_auth_user(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.user.profile.edit', $data);
+        return view(module_release_2_meta('kebab').'::web.user.profile.edit', $data);
     }
 
     /**
@@ -56,10 +56,10 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request)
     {
-        $user = desa_module_template_auth_user();
+        $user = module_release_2_auth_user();
 
         $this->profileService->updateProfile($user->id, $request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.user.profile.index')->with('success', 'Profile updated successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.user.profile.index')->with('success', 'Profile updated successfully.');
     }
 }

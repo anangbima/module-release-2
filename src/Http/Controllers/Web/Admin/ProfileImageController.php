@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Shared\UpdateProfileImageRequest;
-use Modules\DesaModuleTemplate\Services\Admin\ProfileService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Shared\UpdateProfileImageRequest;
+use Modules\ModuleRelease2\Services\Admin\ProfileService;
 
 class ProfileImageController extends Controller
 {
@@ -20,7 +20,7 @@ class ProfileImageController extends Controller
     {
         $this->profileService->updateProfileImage($request->file('image'));
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.profile.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.profile.index')
             ->with('success', 'Profile image updated successfully.');
     }
 
@@ -31,7 +31,7 @@ class ProfileImageController extends Controller
     {
         $this->profileService->removeProfileImage();
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.profile.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.profile.index')
             ->with('success', 'Profile image removed successfully.');
     }
 }

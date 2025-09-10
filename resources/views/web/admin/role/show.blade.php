@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-module-release-2::admin-layout
     :title="$title"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -63,4 +63,4 @@
 
         </div>
     </div>
-</x-desa-module-template::admin-layout>
+</x-module-release-2::admin-layout>

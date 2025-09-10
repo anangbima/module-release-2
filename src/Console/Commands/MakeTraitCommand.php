@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -14,11 +14,11 @@ class MakeTraitCommand extends Command
      * @var string
      */
     protected $signature;
-    protected $description = 'Generate a new traits class in the Desa Module Template module';
+    protected $description = 'Generate a new traits class in the Module Release 2 module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-trait
+        $this->signature = 'module:modulerelease2:make-trait
             {name : Trait class name with optional path, e.g. HasApiToken}';
 
         parent::__construct();
@@ -34,8 +34,8 @@ class MakeTraitCommand extends Command
         $subPath = implode('/', array_map([Str::class, 'studly'], $pathParts));
         $namespaceSuffix = implode('\\', array_map([Str::class, 'studly'], $pathParts));
 
-        $namespace = "Modules\\DesaModuleTemplate\\Traits" . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
-        $basePath = base_path('Modules/desa-module-template/src/Traits' . ($subPath ? '/' . $subPath : ''));
+        $namespace = "Modules\\ModuleRelease2\\Traits" . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
+        $basePath = base_path('Modules/module-release-2/src/Traits' . ($subPath ? '/' . $subPath : ''));
         $filePath = "$basePath/{$className}.php";
 
         // Buat folder jika belum ada

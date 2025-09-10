@@ -8,6 +8,6 @@ class {{ class }} extends Component
 {
     public function render()
     {
-        // return view(desa_module_template_meta('kebab').'::layouts.');
+        // return view(module_release_2_meta('kebab').'::layouts.');
     }
 }

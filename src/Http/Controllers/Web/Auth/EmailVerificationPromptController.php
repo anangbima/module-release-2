@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationService;
 
 class EmailVerificationPromptController extends Controller
 {
@@ -17,9 +17,9 @@ class EmailVerificationPromptController extends Controller
      */
     public function __invoke(Request $request)
     {
-        return $request->user(desa_module_template_meta('snake').'_web')?->hasVerifiedEmail()
+        return $request->user(module_release_2_meta('snake').'_web')?->hasVerifiedEmail()
             ? redirect()->intended()
-            : view(desa_module_template_meta('kebab').'::web.auth.verify-email');
+            : view(module_release_2_meta('kebab').'::web.auth.verify-email');
     }
     
 }

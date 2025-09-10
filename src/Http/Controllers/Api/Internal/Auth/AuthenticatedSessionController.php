@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Api\Auth\LoginRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationApiService;
-use Modules\DesaModuleTemplate\Services\Shared\ApiResponseService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Api\Auth\LoginRequest;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationApiService;
+use Modules\ModuleRelease2\Services\Shared\ApiResponseService;
 
 class AuthenticatedSessionController extends Controller
 {

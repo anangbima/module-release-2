@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Models\ApiClient;
-use Modules\DesaModuleTemplate\Services\Admin\ApiClientService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Models\ApiClient;
+use Modules\ModuleRelease2\Services\Admin\ApiClientService;
 
 class ApiClientStatusController extends Controller
 {
@@ -22,6 +22,6 @@ class ApiClientStatusController extends Controller
         $status = $request->boolean('status');
         $this->apiClientService->toggleStatus($apiClient->id, $status);
 
-       return redirect()->route(desa_module_template_meta('kebab').'.admin.api-clients.index')->with('success', 'Api Client status updated successfully.');
+       return redirect()->route(module_release_2_meta('kebab').'.admin.api-clients.index')->with('success', 'Api Client status updated successfully.');
     }
 }

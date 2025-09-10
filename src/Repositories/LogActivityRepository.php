@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories;
+namespace Modules\ModuleRelease2\Repositories;
 
-use Modules\DesaModuleTemplate\Models\LogActivity;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\LogActivityRepositoryInterface;
-use Modules\DesaModuleTemplate\Traits\HasRelationable;
+use Modules\ModuleRelease2\Models\LogActivity;
+use Modules\ModuleRelease2\Repositories\Interfaces\LogActivityRepositoryInterface;
+use Modules\ModuleRelease2\Traits\HasRelationable;
 
 class LogActivityRepository implements LogActivityRepositoryInterface
 {

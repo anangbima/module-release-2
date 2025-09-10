@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 
@@ -12,11 +12,11 @@ class UpdateAutoloadCommand extends Command
      * @var string
      */
     protected $signature;
-    protected $description = 'Backup and update composer.json to register PSR-4 for Desa Module Template';
+    protected $description = 'Backup and update composer.json to register PSR-4 for Module Release 2';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:update-autoload';
+        $this->signature = 'module:modulerelease2:update-autoload';
         parent::__construct();
     }
 
@@ -47,8 +47,8 @@ class UpdateAutoloadCommand extends Command
         }
 
         // Target namespace dan path
-        $namespace = 'Modules\\DesaModuleTemplate\\';
-        $path = 'modules/desa-module-template/src/';
+        $namespace = 'Modules\\ModuleRelease2\\';
+        $path = 'modules/module-release-2/src/';
 
         // Tambahkan ke psr-4 jika belum ada
         $psr4 =& $composerJson['autoload']['psr-4'];
@@ -69,6 +69,6 @@ class UpdateAutoloadCommand extends Command
         }
 
         $this->newLine();
-        $this->info('✅ Autoload update completed for Desa Module Template .');
+        $this->info('✅ Autoload update completed for Module Release 2 .');
     }
 }

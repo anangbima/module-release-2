@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Login | Desa Module Template')">
+<x-module-release-2::auth-layout :title="__('Login | Module Release 2')">
 
     <div class="rounded-xl pb-8 pt-6 px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-xl">
         <div>
@@ -10,7 +10,7 @@
                 @lang('Silakan masuk dengan menggunakan alamat email dan kata sandi yang sudah terdaftar untuk mengakses akun Anda.')
             </p>
 
-            <form action="{{ route(desa_module_template_meta('kebab').'.login') }}" method="POST" class="space-y-4">
+            <form action="{{ route(module_release_2_meta('kebab').'.login') }}" method="POST" class="space-y-4">
                 @csrf
                 @php
                     $emailIcon = '<span class="icon-[mage--email] text-lg"></span>';
@@ -56,10 +56,10 @@
                     @lang('Login')
                 </x-link>
                 <div class="flex items-start justify-between">
-                    <x-link href="{{ route(desa_module_template_meta('kebab').'.password.request') }}" intent="ghost">
+                    <x-link href="{{ route(module_release_2_meta('kebab').'.password.request') }}" intent="ghost">
                         @lang('Forgot Password?')
                     </x-link>
-                    <x-link href="{{ route(desa_module_template_meta('kebab').'.register') }}" intent="ghost">
+                    <x-link href="{{ route(module_release_2_meta('kebab').'.register') }}" intent="ghost">
                         @lang('Register')
                     </x-link>
                 </div>
@@ -67,4 +67,4 @@
         </div>
     </div>
 
-</x-desa-module-template::auth-layout>
+</x-module-release-2::auth-layout>

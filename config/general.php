@@ -2,20 +2,20 @@
 
 return [
     // Module name
-    'name' => env('DESA_MODULE_TEMPLATE_NAME', 'Desa Module Template'),
+    'name' => env('MODULE_RELEASE_2_NAME', 'Module Release 2'),
 
     // Module slug
-    'slug' => env('DESA_MODULE_TEMPLATE_SLUG', 'desa-module-template'),
+    'slug' => env('MODULE_RELEASE_2_SLUG', 'module-release-2'),
 
     // Setting enabled state
-    'enabled' => env('DESA_MODULE_TEMPLATE_ENABLED', true),
+    'enabled' => env('MODULE_RELEASE_2_ENABLED', true),
 
     // route prefix 
-    'route_prefix' => env('DESA_MODULE_TEMPLATE_PREFIX', 'desa-module-template'),
+    'route_prefix' => env('MODULE_RELEASE_2_PREFIX', 'module-release-2'),
 
     // view namespace
-    'view_namespace' => env('DESA_MODULE_TEMPLATE_VIEW', 'desa-module-template'),
+    'view_namespace' => env('MODULE_RELEASE_2_VIEW', 'module-release-2'),
 
     // Module domain
-    'domain' => env('DESA_MODULE_TEMPLATE_DOMAIN', 'desamoduletemplate.test'),
+    'domain' => env('MODULE_RELEASE_2_DOMAIN', 'modulerelease2.test'),
 ];

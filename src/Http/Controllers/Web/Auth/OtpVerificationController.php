@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\OtpRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Auth\OtpRequest;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationService;
 
 class OtpVerificationController extends Controller
 {
@@ -22,7 +22,7 @@ class OtpVerificationController extends Controller
             'title' => 'Verify OTP',
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.auth.verify-otp', $data);
+        return view(module_release_2_meta('kebab').'::web.auth.verify-otp', $data);
     }
 
     /**
@@ -33,7 +33,7 @@ class OtpVerificationController extends Controller
         $userId = session('otp_pending_user_id');
 
         if (!$userId) {
-            return redirect()->route(desa_module_template_meta('kebab').'.auth.login')
+            return redirect()->route(module_release_2_meta('kebab').'.auth.login')
                 ->withErrors(['otp' => 'Session expired, please login again.']);
         }
 
@@ -46,11 +46,11 @@ class OtpVerificationController extends Controller
         $user = $result['user'];
 
         if ($user->hasRole('user')) {
-            return redirect()->route(desa_module_template_meta('kebab').".user.index")
+            return redirect()->route(module_release_2_meta('kebab').".user.index")
                 ->with('success', 'Login successful!');
         }
 
-        return redirect()->intended(desa_module_template_meta('kebab').'/admin')
+        return redirect()->intended(module_release_2_meta('kebab').'/admin')
             ->with('success', 'Login successful!');
     }
 

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Shared;
+namespace Modules\ModuleRelease2\Services\Shared;
 
 use Illuminate\Http\UploadedFile;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\UserRepositoryInterface;
+use Modules\ModuleRelease2\Repositories\Interfaces\UserRepositoryInterface;
 
 class ProfileService
 {
@@ -76,7 +76,7 @@ class ProfileService
      */
     public function updateProfileImage(UploadedFile $image)
     {
-        $user = Auth::guard(desa_module_template_meta('snake').'_web')->user();
+        $user = Auth::guard(module_release_2_meta('snake').'_web')->user();
 
         $existingMedia = $user->getSingleMedia('profile_image');
 
@@ -119,7 +119,7 @@ class ProfileService
      */
     public function removeProfileImage()
     {
-        $user = Auth::guard(desa_module_template_meta('snake').'_web')->user();
+        $user = Auth::guard(module_release_2_meta('snake').'_web')->user();
 
         $existingMedia = $user->getSingleMedia('profile_image');
 

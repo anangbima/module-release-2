@@ -1,17 +1,17 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 
 class AddEnvCommand extends Command
 {
     protected $signature;
-    protected $description = 'Add environment variables for Desa Module Template';
+    protected $description = 'Add environment variables for Module Release 2';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:add-env';
+        $this->signature = 'module:modulerelease2:add-env';
         parent::__construct();
     }
     
@@ -23,22 +23,22 @@ class AddEnvCommand extends Command
     public function handle()
     {
         $envVariables = [
-            'DESA_MODULE_TEMPLATE_ENABLED' => 'true',
-            'DESA_MODULE_TEMPLATE_NAME' => 'Desa Module Template',
-            'DESA_MODULE_TEMPLATE_SLUG' => 'desa-module-template',
-            'DESA_MODULE_TEMPLATE_PREFIX' => 'desa-module-template',
-            'DESA_MODULE_TEMPLATE_DB_DRIVER' => 'mysql',
-            'DESA_MODULE_TEMPLATE_DB_CONNECTION' => 'desa_module_template',
-            'DESA_MODULE_TEMPLATE_DB_HOST' => '127.0.0.1',
-            'DESA_MODULE_TEMPLATE_DB_PORT' => '3306',
-            'DESA_MODULE_TEMPLATE_DB_DATABASE' => 'desa_module_template',
-            'DESA_MODULE_TEMPLATE_DB_USERNAME' => 'root',
-            'DESA_MODULE_TEMPLATE_DB_PASSWORD' => '',
-            'DESA_MODULE_TEMPLATE_DOMAIN' => 'desamoduletemplate.test',
-            'DESA_MODULE_TEMPLATE_SESSION_DRIVER' => 'database',
-            'DESA_MODULE_TEMPLATE_SESSION_CONNECTION' => 'desa_module_template',
-            'DESA_MODULE_TEMPLATE_SESSION_TABLE' => 'desa_module_template_sessions',
-            'DESA_MODULE_TEMPLATE_SESSION_COOKIE' => 'desa_module_template_session',
+            'MODULE_RELEASE_2_ENABLED' => 'true',
+            'MODULE_RELEASE_2_NAME' => 'Module Release 2',
+            'MODULE_RELEASE_2_SLUG' => 'module-release-2',
+            'MODULE_RELEASE_2_PREFIX' => 'module-release-2',
+            'MODULE_RELEASE_2_DB_DRIVER' => 'mysql',
+            'MODULE_RELEASE_2_DB_CONNECTION' => 'module_release_2',
+            'MODULE_RELEASE_2_DB_HOST' => '127.0.0.1',
+            'MODULE_RELEASE_2_DB_PORT' => '3306',
+            'MODULE_RELEASE_2_DB_DATABASE' => 'module_release_2',
+            'MODULE_RELEASE_2_DB_USERNAME' => 'root',
+            'MODULE_RELEASE_2_DB_PASSWORD' => '',
+            'MODULE_RELEASE_2_DOMAIN' => 'modulerelease2.test',
+            'MODULE_RELEASE_2_SESSION_DRIVER' => 'database',
+            'MODULE_RELEASE_2_SESSION_CONNECTION' => 'module_release_2',
+            'MODULE_RELEASE_2_SESSION_TABLE' => 'module_release_2_sessions',
+            'MODULE_RELEASE_2_SESSION_COOKIE' => 'module_release_2_session',
         ];
 
         $envPath = base_path('.env');

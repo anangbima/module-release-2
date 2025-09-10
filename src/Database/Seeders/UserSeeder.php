@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Seeders;
+namespace Modules\ModuleRelease2\Database\Seeders;
 
 use Illuminate\Database\Seeder;
-use Modules\DesaModuleTemplate\Models\User;
-use Modules\DesaModuleTemplate\Services\Shared\PermissionRegistrar;
+use Modules\ModuleRelease2\Models\User;
+use Modules\ModuleRelease2\Services\Shared\PermissionRegistrar;
 
 class UserSeeder extends Seeder
 {

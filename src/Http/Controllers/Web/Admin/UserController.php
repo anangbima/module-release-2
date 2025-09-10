@@ -1,21 +1,21 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Excel;
-use Modules\DesaModuleTemplate\Exporters\UserExporter;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Admin\StoreUserRequest;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Admin\UpdateUserRequest;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Shared\ImportRequest;
-use Modules\DesaModuleTemplate\Importers\UserImporter;
-use Modules\DesaModuleTemplate\Models\User;
-use Modules\DesaModuleTemplate\Services\Admin\RoleService;
-use Modules\DesaModuleTemplate\Services\Admin\UserService;
-use Modules\DesaModuleTemplate\Services\Shared\ExportService;
-use Modules\DesaModuleTemplate\Services\Shared\ImportService;
-use Modules\DesaModuleTemplate\Services\Shared\LogActivityService;
+use Modules\ModuleRelease2\Exporters\UserExporter;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Admin\StoreUserRequest;
+use Modules\ModuleRelease2\Http\Requests\Web\Admin\UpdateUserRequest;
+use Modules\ModuleRelease2\Http\Requests\Web\Shared\ImportRequest;
+use Modules\ModuleRelease2\Importers\UserImporter;
+use Modules\ModuleRelease2\Models\User;
+use Modules\ModuleRelease2\Services\Admin\RoleService;
+use Modules\ModuleRelease2\Services\Admin\UserService;
+use Modules\ModuleRelease2\Services\Shared\ExportService;
+use Modules\ModuleRelease2\Services\Shared\ImportService;
+use Modules\ModuleRelease2\Services\Shared\LogActivityService;
 
 class UserController extends Controller
 {
@@ -41,7 +41,7 @@ class UserController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                     'icon' => 'icon-[mage--dashboard-chart]',
                 ],
                 [
@@ -55,7 +55,7 @@ class UserController extends Controller
             'totalInactive' => $totalInactive,
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.user.index', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.user.index', $data);
     }
 
     /**
@@ -68,12 +68,12 @@ class UserController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                     'icon' => 'icon-[mage--dashboard-chart]',
                 ],
                 [
                     'name' => 'Users',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.users.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.users.index'),
                     'icon' => 'icon-[stash--user-cog]',
                 ],
                 [
@@ -85,7 +85,7 @@ class UserController extends Controller
             'availableRoles' => $this->roleService->getAllRoles(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.user.create', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.user.create', $data);
     }
 
     /**
@@ -95,7 +95,7 @@ class UserController extends Controller
     {
         $this->userService->createUser($request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.users.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.users.index')
             ->with('success', 'User created successfully.');
     }
 
@@ -112,12 +112,12 @@ class UserController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                     'icon' => 'icon-[mage--dashboard-chart]',
                 ],
                 [
                     'name' => 'Users',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.users.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.users.index'),
                     'icon' => 'icon-[stash--user-cog]',
                 ],
                 [
@@ -128,7 +128,7 @@ class UserController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.user.show', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.user.show', $data);
     }
 
     /**
@@ -144,12 +144,12 @@ class UserController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                     'icon' => 'icon-[mage--dashboard-chart]',
                 ],
                 [
                     'name' => 'Users',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.users.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.users.index'),
                     'icon' => 'icon-[stash--user-cog]',
                 ],
                 [
@@ -161,7 +161,7 @@ class UserController extends Controller
             'availableRoles' => $this->roleService->getAllRoles(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.user.edit', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.user.edit', $data);
     }
 
     /**
@@ -171,7 +171,7 @@ class UserController extends Controller
     {
         $this->userService->updateUser($user->id, $request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.users.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.users.index')
             ->with('success', 'User updated successfully.');
     }
 
@@ -182,7 +182,7 @@ class UserController extends Controller
     {
         $this->userService->deleteUser($user->id);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.users.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.users.index')
             ->with('success', 'User deleted successfully.');
     }
 
@@ -207,8 +207,8 @@ class UserController extends Controller
                 after: ['file_name' => $fileName]
             ));
 
-        $fileName = desa_module_template_fileName('users_export', $type);
-        $pdfView = desa_module_template_meta('kebab').'::pdf.users';
+        $fileName = module_release_2_fileName('users_export', $type);
+        $pdfView = module_release_2_meta('kebab').'::pdf.users';
 
         return match ($type) {
             'xlsx' => $exporter->exportToExcel(fileName: $fileName, format: Excel::XLSX),
@@ -248,7 +248,7 @@ class UserController extends Controller
         $importedCount = count($result['imported_ids'] ?? []);
         $errors = $result['errors'] ?? [];
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.users.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.users.index')
             ->with('success', $importedCount . ' users imported successfully.')
             ->with('import_errors', $errors);
     }

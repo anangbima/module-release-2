@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Models\Notification;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Services\Shared\NotificationService;
+use Modules\ModuleRelease2\Models\Notification;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Services\Shared\NotificationService;
 
 class NotificationController extends Controller
 {
@@ -23,39 +23,39 @@ class NotificationController extends Controller
         switch ($filter) {
             case 'read':
                 $notifications = $this->notificationService
-                    ->getRead(desa_module_template_auth_user()->id)
+                    ->getRead(module_release_2_auth_user()->id)
                     ->groupBy(fn($n) => $this->groupByDate($n));
                 break;
             case 'unread':
                 $notifications = $this->notificationService
-                    ->getUnread(desa_module_template_auth_user()->id)
+                    ->getUnread(module_release_2_auth_user()->id)
                     ->groupBy(fn($n) => $this->groupByDate($n));
                 break;
             case 'all':
             default:
                 $notifications = $this->notificationService
-                    ->getAll(desa_module_template_auth_user()->id)
+                    ->getAll(module_release_2_auth_user()->id)
                     ->groupBy(fn($n) => $this->groupByDate($n));
                 break;
         }
 
-        $role = desa_module_template_auth_user()->role;
+        $role = module_release_2_auth_user()->role;
 
         $data = [
             'title' => 'Notifications',
             'breadcrumbs' => [
-                ['name' => 'Dashboard', 'url' => route(desa_module_template_meta('kebab').'.'.$role.'.index')],
+                ['name' => 'Dashboard', 'url' => route(module_release_2_meta('kebab').'.'.$role.'.index')],
                 ['name' => 'Notification', 'url' => '#'],
             ],
             'notifications' => $notifications,
             'role' => $role,
             'filter' => $filter, 
-            'totalAll' => $this->notificationService->getAll(desa_module_template_auth_user()->id)->count(),
-            'totalRead' => $this->notificationService->getRead(desa_module_template_auth_user()->id)->count(),
-            'totalUnread' => $this->notificationService->getUnread(desa_module_template_auth_user()->id)->count(),
+            'totalAll' => $this->notificationService->getAll(module_release_2_auth_user()->id)->count(),
+            'totalRead' => $this->notificationService->getRead(module_release_2_auth_user()->id)->count(),
+            'totalUnread' => $this->notificationService->getUnread(module_release_2_auth_user()->id)->count(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.shared.notification.index', $data);
+        return view(module_release_2_meta('kebab').'::web.shared.notification.index', $data);
     }
 
     protected function groupByDate($notification)
@@ -70,19 +70,19 @@ class NotificationController extends Controller
      */
     public function show(Notification $notification)
     {
-        $notificationUpdated = $this->notificationService->read($notification->id, desa_module_template_auth_user()->id);
-        $role = desa_module_template_auth_user()->role;
+        $notificationUpdated = $this->notificationService->read($notification->id, module_release_2_auth_user()->id);
+        $role = module_release_2_auth_user()->role;
 
         $data = [
             'title' => 'Detail Notification',
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.'.$role.'.index'),
+                    'url' => route(module_release_2_meta('kebab').'.'.$role.'.index'),
                 ],
                 [
                     'name' => 'Notifications',
-                    'url' => route(desa_module_template_meta('kebab').'.'.$role.'.notifications.index'),
+                    'url' => route(module_release_2_meta('kebab').'.'.$role.'.notifications.index'),
                 ],
                 [
                     // 'name' => $notification->data['title'],
@@ -94,7 +94,7 @@ class NotificationController extends Controller
             'notification' => $notificationUpdated,
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.shared.notification.show', $data);
+        return view(module_release_2_meta('kebab').'::web.shared.notification.show', $data);
     }
 
     /**
@@ -104,7 +104,7 @@ class NotificationController extends Controller
     {
         $notification->delete();
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.notifications.index')->with('success', 'Notification deleted successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.admin.notifications.index')->with('success', 'Notification deleted successfully.');
     }
     
     /**
@@ -112,9 +112,9 @@ class NotificationController extends Controller
      */
     public function markAsRead(Notification $notification)
     {
-        $this->notificationService->read($notification->id, desa_module_template_auth_user()->id);
+        $this->notificationService->read($notification->id, module_release_2_auth_user()->id);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.notifications.index')->with('success', 'Notification marked as read successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.admin.notifications.index')->with('success', 'Notification marked as read successfully.');
     }
 
     /**
@@ -122,9 +122,9 @@ class NotificationController extends Controller
      */
     public function markAllAsRead()
     {
-        $this->notificationService->readAll(desa_module_template_auth_user()->id);
+        $this->notificationService->readAll(module_release_2_auth_user()->id);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.notifications.index')->with('success', 'All notifications marked as read successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.admin.notifications.index')->with('success', 'All notifications marked as read successfully.');
     }
 
     /**
@@ -132,8 +132,8 @@ class NotificationController extends Controller
      */
     public function clearAll()
     {
-        $this->notificationService->clearAll(desa_module_template_auth_user()->id);
+        $this->notificationService->clearAll(module_release_2_auth_user()->id);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.notifications.index')->with('success', 'All notifications deleted successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.admin.notifications.index')->with('success', 'All notifications deleted successfully.');
     }
 }

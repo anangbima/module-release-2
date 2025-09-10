@@ -3,14 +3,14 @@
 
 {{-- Importants --}}
 @vite([
-    'modules/desa-module-template/resources/js/app.js',
-    'modules/desa-module-template/resources/css/app.css',
+    'modules/module-release-2/resources/js/app.js',
+    'modules/module-release-2/resources/css/app.css',
 ])
 
 {{-- Important --}}
 <meta 
     name="user-id" 
-    content="{{ Auth::guard(desa_module_template_meta('snake').'_web')->user()->id }}"
+    content="{{ Auth::guard(module_release_2_meta('snake').'_web')->user()->id }}"
 >
 
 <div 
@@ -27,8 +27,8 @@
             $menuItems = [
                 [
                     'label' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
-                    'route' => desa_module_template_meta('kebab').'.admin.index',
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
+                    'route' => module_release_2_meta('kebab').'.admin.index',
                     'icon' => '<span class="icon-[mage--dashboard-chart] text-xl flex-shrink-0"></span>'
                 ],
 
@@ -40,29 +40,29 @@
                 [
                     'label' => 'User Management',
                     'icon' => '<span class="icon-[stash--user-cog] text-xl flex-shrink-0"></span>',
-                    'route' => [desa_module_template_meta('kebab').'.admin.users.*', desa_module_template_meta('kebab').'.admin.roles.*', desa_module_template_meta('kebab').'.admin.permissions.*'],
+                    'route' => [module_release_2_meta('kebab').'.admin.users.*', module_release_2_meta('kebab').'.admin.roles.*', module_release_2_meta('kebab').'.admin.permissions.*'],
                     'children' => [
                         [
                             'label' => 'Users', 
-                            'url' => route(desa_module_template_meta('kebab').'.admin.users.index'),
-                            'route' => desa_module_template_meta('kebab').'.admin.users.index',
+                            'url' => route(module_release_2_meta('kebab').'.admin.users.index'),
+                            'route' => module_release_2_meta('kebab').'.admin.users.index',
                         ],
                         [
                             'label' => 'Roles', 
-                            'url' => route(desa_module_template_meta('kebab').'.admin.roles.index'),
-                            'route' => desa_module_template_meta('kebab').'.admin.roles.index',
+                            'url' => route(module_release_2_meta('kebab').'.admin.roles.index'),
+                            'route' => module_release_2_meta('kebab').'.admin.roles.index',
                         ],
                         [
                             'label' => 'Permission',
-                            'url' => route(desa_module_template_meta('kebab').'.admin.permissions.index'),
-                            'route' => desa_module_template_meta('kebab').'.admin.permissions.index',
+                            'url' => route(module_release_2_meta('kebab').'.admin.permissions.index'),
+                            'route' => module_release_2_meta('kebab').'.admin.permissions.index',
                         ],
                     ],
                 ],
                 [
                     'label' => 'General',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.settings.index'),
-                    'route' => desa_module_template_meta('kebab').'.admin.settings.index',
+                    'url' => route(module_release_2_meta('kebab').'.admin.settings.index'),
+                    'route' => module_release_2_meta('kebab').'.admin.settings.index',
                     'icon' => '<span class="icon-[lsicon--setting-outline] text-xl flex-shrink-0"></span>'
                 ],
                 [
@@ -72,29 +72,29 @@
                 [
                     'label' => 'Log Activity',
                     'icon' => '<span class="icon-[iconamoon--history-fill] text-lg flex-shrink-0"></span>',
-                    'route' => [desa_module_template_meta('kebab').'.admin.logs.*'],
+                    'route' => [module_release_2_meta('kebab').'.admin.logs.*'],
                     'children' => [
                         [
                             'label' => 'All', 
-                            'url' => route(desa_module_template_meta('kebab').'.admin.logs.index'),
-                            'route' => desa_module_template_meta('kebab').'.admin.logs.index',
+                            'url' => route(module_release_2_meta('kebab').'.admin.logs.index'),
+                            'route' => module_release_2_meta('kebab').'.admin.logs.index',
                         ],
                         [
                             'label' => 'By Role', 
-                            'url' => route(desa_module_template_meta('kebab').'.admin.logs.by-role'),
-                            'route' => desa_module_template_meta('kebab').'.admin.logs.by-role',
+                            'url' => route(module_release_2_meta('kebab').'.admin.logs.by-role'),
+                            'route' => module_release_2_meta('kebab').'.admin.logs.by-role',
                         ],
                         [
                             'label' => 'My Logs',
-                            'url' => route(desa_module_template_meta('kebab').'.admin.logs.user'),
-                            'route' => desa_module_template_meta('kebab').'.admin.logs.user',
+                            'url' => route(module_release_2_meta('kebab').'.admin.logs.user'),
+                            'route' => module_release_2_meta('kebab').'.admin.logs.user',
                         ],
                     ],
                 ],
                 [
                     'label' => 'Api Client',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.api-clients.index'),
-                    'route' => desa_module_template_meta('kebab').'.admin.api-clients.index',
+                    'url' => route(module_release_2_meta('kebab').'.admin.api-clients.index'),
+                    'route' => module_release_2_meta('kebab').'.admin.api-clients.index',
                     'icon' => '<span class="icon-[mynaui--api] text-xl flex-shrink-0"></span>'
                 ],
             ];
@@ -121,19 +121,19 @@
 
                     {{-- Notification button --}}
                     <x-notification-button 
-                        :module="'desa-module-template'"
-                        :urlListNotification="route('quick-notifications', ['module' => 'desa-module-template'])" 
-                        :urlAllNotification="route(desa_module_template_meta('kebab').'.admin.notifications.index')" 
+                        :module="'module-release-2'"
+                        :urlListNotification="route('quick-notifications', ['module' => 'module-release-2'])" 
+                        :urlAllNotification="route(module_release_2_meta('kebab').'.admin.notifications.index')" 
                     />
 
                     {{-- Profile button --}}
                     <x-profile-button 
-                        :name="desa_module_template_auth_user()->name" 
-                        :email="desa_module_template_auth_user()->email" 
-                        :src_url="desa_module_template_auth_user()->profile_image_url ?? asset('assets/default-profile.jpg')"
-                        :account_url="route(desa_module_template_meta('kebab').'.admin.profile.index')" 
-                        :setting_url="route(desa_module_template_meta('kebab').'.admin.settings.index')" 
-                        :logout_url="route(desa_module_template_meta('kebab').'.logout')" 
+                        :name="module_release_2_auth_user()->name" 
+                        :email="module_release_2_auth_user()->email" 
+                        :src_url="module_release_2_auth_user()->profile_image_url ?? asset('assets/default-profile.jpg')"
+                        :account_url="route(module_release_2_meta('kebab').'.admin.profile.index')" 
+                        :setting_url="route(module_release_2_meta('kebab').'.admin.settings.index')" 
+                        :logout_url="route(module_release_2_meta('kebab').'.logout')" 
                     />
                 </x-slot:actions>
             </x-partials.component.navbar>

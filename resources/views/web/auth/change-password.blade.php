@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Change Password | Desa Module Template')">
+<x-module-release-2::auth-layout :title="__('Change Password | Module Release 2')">
 
     <div class="rounded-xl pb-8 pt-6 px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-3xl">
         <div>
@@ -12,7 +12,7 @@
         </div>
 
         {{-- Form --}}
-        <form action="{{ route(desa_module_template_meta('kebab').'.password.store') }}" method="POST" class="space-y-4">
+        <form action="{{ route(module_release_2_meta('kebab').'.password.store') }}" method="POST" class="space-y-4">
             @csrf
 
             <x-form.input-text 
@@ -59,4 +59,4 @@
         </form>
     </div>
 
-</x-desa-module-template::auth-layout>
+</x-module-release-2::auth-layout>

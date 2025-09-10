@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Notifications;
+namespace Modules\ModuleRelease2\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -27,8 +27,8 @@ class VerifyEmailNotification extends Notification implements ShouldQueue
     protected function verificationUrl($notifiable)
     {
         $routeName = $this->guard === 'api'
-                            ? desa_module_template_meta('kebab') . '.api.verification.verify'
-                            : desa_module_template_meta('kebab') . '.verification.verify';
+                            ? module_release_2_meta('kebab') . '.api.verification.verify'
+                            : module_release_2_meta('kebab') . '.verification.verify';
 
 
         return URL::temporarySignedRoute(
@@ -54,7 +54,7 @@ class VerifyEmailNotification extends Notification implements ShouldQueue
 
         return (new MailMessage)
             ->subject('Verifikasi Email Anda')
-            ->view(desa_module_template_meta('kebab').'::emails.verify-email', [
+            ->view(module_release_2_meta('kebab').'::emails.verify-email', [
                 'user' => $notifiable,
                 'url' => $this->verificationUrl($notifiable),
             ]);

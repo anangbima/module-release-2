@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Admin\StorePermissionRequest;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Admin\UpdatePermissionRequest;
-use Modules\DesaModuleTemplate\Models\Permission;
-use Modules\DesaModuleTemplate\Services\Admin\PermissionService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Admin\StorePermissionRequest;
+use Modules\ModuleRelease2\Http\Requests\Web\Admin\UpdatePermissionRequest;
+use Modules\ModuleRelease2\Models\Permission;
+use Modules\ModuleRelease2\Services\Admin\PermissionService;
 
 class PermissionController extends Controller
 {
@@ -27,7 +27,7 @@ class PermissionController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Permissions',
@@ -37,7 +37,7 @@ class PermissionController extends Controller
             'permissions' => $permissions,
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.permission.index', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.permission.index', $data);
     }
 
     /**
@@ -50,11 +50,11 @@ class PermissionController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Permissions',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.permissions.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.permissions.index'),
                 ],
                 [
                     'name' => 'Add New Permission',
@@ -63,7 +63,7 @@ class PermissionController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.permission.create', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.permission.create', $data);
     }
 
     /**
@@ -73,7 +73,7 @@ class PermissionController extends Controller
     {
         $this->permissionService->createPermission($request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.permissions.index')->with('success', 'Permission created successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.admin.permissions.index')->with('success', 'Permission created successfully.');
     }
 
     /**
@@ -89,11 +89,11 @@ class PermissionController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Permissions',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.permissions.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.permissions.index'),
                 ],
                 [
                     'name' => $permission->name,
@@ -102,7 +102,7 @@ class PermissionController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.permission.show', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.permission.show', $data);
     }
 
     /**
@@ -116,11 +116,11 @@ class PermissionController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Permissions',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.permissions.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.permissions.index'),
                 ],
                 [
                     'name' => 'Edit Permission',
@@ -129,7 +129,7 @@ class PermissionController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.permission.edit', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.permission.edit', $data);
     }
 
     /**
@@ -139,7 +139,7 @@ class PermissionController extends Controller
     {
         $this->permissionService->updatePermission($permission->id, $request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.permissions.index')->with('success', 'Permission updated successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.admin.permissions.index')->with('success', 'Permission updated successfully.');
     }
 
     /**
@@ -149,6 +149,6 @@ class PermissionController extends Controller
     {
         $this->permissionService->deletePermission($permission->id);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.permissions.index')->with('success', 'Permission deleted successfully.');  
+        return redirect()->route(module_release_2_meta('kebab').'.admin.permissions.index')->with('success', 'Permission deleted successfully.');  
     }
 }

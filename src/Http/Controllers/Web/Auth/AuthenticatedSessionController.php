@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use Modules\DesaModuleTemplate\Helpers\ModuleMeta;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\LoginRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\ModuleRelease2\Helpers\ModuleMeta;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Auth\LoginRequest;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationService;
 
 class AuthenticatedSessionController extends Controller
 {
@@ -24,7 +24,7 @@ class AuthenticatedSessionController extends Controller
             'title' => 'Login',
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.auth.login', $data);
+        return view(module_release_2_meta('kebab').'::web.auth.login', $data);
     }
 
     /**
@@ -40,15 +40,15 @@ class AuthenticatedSessionController extends Controller
 
             $this->authService->sendOtp($user);
 
-            return redirect()->route(desa_module_template_meta('kebab').'.verify-otp')
+            return redirect()->route(module_release_2_meta('kebab').'.verify-otp')
                                     ->with('status', 'Please verify your account with OTP.');
         }
 
         if ($user->hasRole('user')) {
-            return redirect()->route(desa_module_template_meta('kebab').".user.index");
+            return redirect()->route(module_release_2_meta('kebab').".user.index");
         }
 
-        return redirect()->intended(desa_module_template_meta('kebab').'/admin')->with('success', 'Login successful.');
+        return redirect()->intended(module_release_2_meta('kebab').'/admin')->with('success', 'Login successful.');
     }
 
     /**
@@ -58,6 +58,6 @@ class AuthenticatedSessionController extends Controller
     {
         $this->authService->logout(request());
 
-        return redirect(desa_module_template_meta('kebab')."/login");
+        return redirect(module_release_2_meta('kebab')."/login");
     }
 }

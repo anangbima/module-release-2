@@ -1,44 +1,44 @@
 {
-  "name": "desadigital/desa-module-template",
-  "description": "Modul Desa Module Template untuk manajemen fitur terkait Desa Module Template di sistem desa digital.",
-  "type": "library",
-  "license": "MIT",
-  "autoload": {
-    "psr-4": {
-      "Modules\\DesaModuleTemplate\\": "src/"
+    "name": "modules/module-release-2",
+    "description": "Modul Module Release 2 untuk manajemen fitur terkait Module Release 2 di sistem desa digital.",
+    "type": "library",
+    "license": "MIT",
+    "autoload": {
+        "psr-4": {
+            "Modules\\ModuleRelease2\\": "src/"
+        }
+    },
+    "exclude-from-classmap": [
+        "installer.php",
+        "bootstrap.php"
+    ],
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "minimum-stability": "stable",
+    "require-dev": {
+        "laravel/framework": "^11.0",
+        "orchestra/testbench": "^9.14",
+        "pestphp/pest": "^3.7",
+        "pestphp/pest-plugin-laravel": "^3.0",
+        "mockery/mockery": "^1.6"
+    },
+    "config": {
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Modules\\ModuleRelease2\\Providers\\ModuleServiceProvider"
+            ]
+        }
+    },
+    "require": {
+        "spatie/laravel-permission": "^6.20",
+        "laravel/socialite": "^5.21"
     }
-  },
-  "exclude-from-classmap": [
-    "installer.php",
-    "bootstrap.php"
-  ],
-  "autoload-dev": {
-    "psr-4": {
-      "Tests\\": "tests/"
-    }
-  },
-  "minimum-stability": "stable",
-  "require-dev": {
-    "laravel/framework": "^11.0",
-    "orchestra/testbench": "^9.14",
-    "pestphp/pest": "^3.7",
-    "pestphp/pest-plugin-laravel": "^3.0",
-    "mockery/mockery": "^1.6"
-  },
-  "config": {
-    "allow-plugins": {
-      "pestphp/pest-plugin": true
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Modules\\DesaModuleTemplate\\Providers\\ModuleServiceProvider"
-      ]
-    }
-  },
-  "require": {
-    "spatie/laravel-permission": "^6.20",
-    "laravel/socialite": "^5.21"
-  }
 }

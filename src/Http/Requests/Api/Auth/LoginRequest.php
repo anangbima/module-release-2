@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Api\Auth;
+namespace Modules\ModuleRelease2\Http\Requests\Api\Auth;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
@@ -42,7 +42,7 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        $guard = desa_module_template_meta('snake').'_api';
+        $guard = module_release_2_meta('snake').'_api';
 
         if (!Auth::guard($guard)->attempt($this->only('email', 'password'))) {
             RateLimiter::hit($this->throttleKey());

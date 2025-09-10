@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use DesaDigitalSupport\RegionManager\Services\RegionService;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Shared\UpdateProfileRequest;
-use Modules\DesaModuleTemplate\Services\Shared\ProfileService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Shared\UpdateProfileRequest;
+use Modules\ModuleRelease2\Services\Shared\ProfileService;
 
 class ProfileController extends Controller
 {
@@ -19,16 +19,16 @@ class ProfileController extends Controller
      */
     public function index()
     {
-        $role = desa_module_template_auth_user()->role;
+        $role = module_release_2_auth_user()->role;
 
         $data = [
             'title' => 'Profile',
-            'user' => desa_module_template_auth_user(),
+            'user' => module_release_2_auth_user(),
             'role' => $role,
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Profile',
@@ -37,7 +37,7 @@ class ProfileController extends Controller
             ],
         ];
         
-        return view(desa_module_template_meta('kebab') . '::web.shared.profile.index', $data);
+        return view(module_release_2_meta('kebab') . '::web.shared.profile.index', $data);
     }
 
     /**
@@ -45,10 +45,10 @@ class ProfileController extends Controller
      */
     public function update(UpdateProfileRequest $request)
     {
-        $user = desa_module_template_auth_user();
+        $user = module_release_2_auth_user();
 
         $this->profileService->updateProfile($user->id, $request->all());
 
-        return redirect()->route(desa_module_template_meta('kebab') . '.admin.profile.index')->with('success', 'Profile updated successfully.');
+        return redirect()->route(module_release_2_meta('kebab') . '.admin.profile.index')->with('success', 'Profile updated successfully.');
     }
 }

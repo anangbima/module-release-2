@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Traits;
+namespace Modules\ModuleRelease2\Traits;
 
 use Illuminate\Database\Eloquent\Builder;
 

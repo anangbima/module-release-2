@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
@@ -12,11 +12,11 @@ class MakeRequestCommand extends Command
      * Signature & description
      */
     protected $signature;
-    protected $description = 'Generate a new Form Request file in the Desa Module Template module';
+    protected $description = 'Generate a new Form Request file in the Module Release 2 module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-request
+        $this->signature = 'module:modulerelease2:make-request
             {name : Request class name with optional path, e.g. Web/Admin/ProductRequest}';
 
         parent::__construct();
@@ -32,8 +32,8 @@ class MakeRequestCommand extends Command
         $subPath = implode('/', array_map([Str::class, 'studly'], $pathParts));
         $namespaceSuffix = implode('\\', array_map([Str::class, 'studly'], $pathParts));
 
-        $namespace = "Modules\\DesaModuleTemplate\\Http\\Requests" . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
-        $basePath = base_path('Modules/desa-module-template/src/Http/Requests' . ($subPath ? '/' . $subPath : ''));
+        $namespace = "Modules\\ModuleRelease2\\Http\\Requests" . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
+        $basePath = base_path('Modules/module-release-2/src/Http/Requests' . ($subPath ? '/' . $subPath : ''));
         $filePath = "$basePath/{$className}.php";
 
         File::ensureDirectoryExists($basePath);

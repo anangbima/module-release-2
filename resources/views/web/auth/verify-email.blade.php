@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Verify Your Email Address | Desa Module Template')">
+<x-module-release-2::auth-layout :title="__('Verify Your Email Address | Module Release 2')">
 
     <div class="rounded-xl pb-8 pt-6 px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-xl">
         <div>
@@ -17,7 +17,7 @@
                 </div>
             @endif
 
-            <form method="POST" action="{{ route(desa_module_template_meta('kebab').'.verification.send') }}" class="mt-8">
+            <form method="POST" action="{{ route(module_release_2_meta('kebab').'.verification.send') }}" class="mt-8">
                 @csrf
                 <x-link 
                     tag="button" 
@@ -35,4 +35,4 @@
         </div>
     </div>
 
-</x-desa-module-template::auth-layout>
+</x-module-release-2::auth-layout>

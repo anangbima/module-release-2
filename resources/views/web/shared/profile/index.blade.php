@@ -1,8 +1,8 @@
 <x-dynamic-component
-    :component="'desa-module-template::' . $role . '-layout'"
+    :component="'module-release-2::' . $role . '-layout'"
     :title="__($title)"
     :role="$role"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -150,7 +150,7 @@
                             class="rounded-lg"
                             intent="secondary"
                             href="#"
-                            href="{{ route(desa_module_template_meta('kebab').'.password.change') }}"
+                            href="{{ route(module_release_2_meta('kebab').'.password.change') }}"
                         >
                             Change Password
                         </x-link>
@@ -160,7 +160,7 @@
                             class="rounded-lg"
                             intent="secondary"
                             href="#"
-                            href="{{ route(desa_module_template_meta('kebab').'.password.confirm') }}"
+                            href="{{ route(module_release_2_meta('kebab').'.password.confirm') }}"
                         >
                             Confirmation Password
                         </x-link>
@@ -177,7 +177,7 @@
         maxWidth="2xl"
     >
         <form 
-            action="{{ route(desa_module_template_meta('kebab').'.'.$role.'.profile-image.update', auth(desa_module_template_meta('snake').'_web')->user()->id) }}" 
+            action="{{ route(module_release_2_meta('kebab').'.'.$role.'.profile-image.update', auth(module_release_2_meta('snake').'_web')->user()->id) }}" 
             method="POST" 
             enctype="multipart/form-data" 
         >
@@ -214,7 +214,7 @@
         :static="true" 
         maxWidth="md"
     >
-        <form action="{{ route(desa_module_template_meta('kebab').'.'.$role.'.profile-image.destroy') }}" method="POST">
+        <form action="{{ route(module_release_2_meta('kebab').'.'.$role.'.profile-image.destroy') }}" method="POST">
             @csrf
             @method('DELETE')
 
@@ -254,7 +254,7 @@
         maxWidth="2xl"
     >
         <form 
-            action="{{ route(desa_module_template_meta('kebab').'.'.$role.'.profile.update', $user->slug) }}" 
+            action="{{ route(module_release_2_meta('kebab').'.'.$role.'.profile.update', $user->slug) }}" 
             method="POST" 
             enctype="multipart/form-data" 
         >

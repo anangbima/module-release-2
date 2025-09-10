@@ -3,7 +3,7 @@
 namespace {{namespace}};
 
 use Illuminate\Support\Collection;
-use Modules\DesaModuleTemplate\Services\Shared\ExportService;
+use Modules\ModuleRelease2\Services\Shared\ExportService;
 
 class {{class}} extends BaseExporter
 {

@@ -3,14 +3,14 @@
 
 {{-- Importants --}}
 @vite([
-    'modules/desa-module-template/resources/js/app.js',
-    'modules/desa-module-template/resources/css/app.css',
+    'modules/module-release-2/resources/js/app.js',
+    'modules/module-release-2/resources/css/app.css',
 ])
 
 {{-- Important --}}
 <meta 
     name="user-id" 
-    content="{{ Auth::guard(desa_module_template_meta('snake').'_web')->user()->id }}"
+    content="{{ Auth::guard(module_release_2_meta('snake').'_web')->user()->id }}"
 >
 
 <div 
@@ -26,8 +26,8 @@
             $menuItems = [
                 [
                     'label' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.user.index'),
-                    'route' => desa_module_template_meta('kebab').'.user.index',
+                    'url' => route(module_release_2_meta('kebab').'.user.index'),
+                    'route' => module_release_2_meta('kebab').'.user.index',
                     'icon' => '<span class="icon-[mage--dashboard-chart] text-xl flex-shrink-0"></span>'
                 ],
                 [
@@ -36,8 +36,8 @@
                 ],
                 [
                     'label' => 'My Log',
-                    'url' => route(desa_module_template_meta('kebab').'.user.logs.index'),
-                    'route' => desa_module_template_meta('kebab').'.user.logs.*',
+                    'url' => route(module_release_2_meta('kebab').'.user.logs.index'),
+                    'route' => module_release_2_meta('kebab').'.user.logs.*',
                     'icon' => '<span class="icon-[iconamoon--history-fill] text-lg flex-shrink-0"></span>'
                 ],
             ];
@@ -65,17 +65,17 @@
                     {{-- Notification button --}}
                     <x-notification-button 
                         :urlListNotification="route('quick-notifications')" 
-                        :urlAllNotification="route(desa_module_template_meta('kebab').'.user.notifications.index')" 
+                        :urlAllNotification="route(module_release_2_meta('kebab').'.user.notifications.index')" 
                     />
 
                     {{-- Profile button --}}
                     <x-profile-button 
-                        :name="desa_module_template_auth_user()->name" 
-                        :email="desa_module_template_auth_user()->email" 
-                        :src_url="desa_module_template_auth_user()->profile_image_url ?? asset('assets/default-profile.jpg')"
-                        :account_url="route(desa_module_template_meta('kebab').'.user.profile.index')" 
+                        :name="module_release_2_auth_user()->name" 
+                        :email="module_release_2_auth_user()->email" 
+                        :src_url="module_release_2_auth_user()->profile_image_url ?? asset('assets/default-profile.jpg')"
+                        :account_url="route(module_release_2_meta('kebab').'.user.profile.index')" 
                         :setting_url="'#'" 
-                        :logout_url="route(desa_module_template_meta('kebab').'.logout')" 
+                        :logout_url="route(module_release_2_meta('kebab').'.logout')" 
                     />
                 </x-slot:actions>
             </x-partials.component.navbar>

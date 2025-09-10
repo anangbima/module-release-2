@@ -1,13 +1,13 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
 use Modules\TestModule1\Models\LogActivity;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Models\Role;
-use Modules\DesaModuleTemplate\Services\Admin\LogActivityService;
-use Modules\DesaModuleTemplate\Services\Admin\RoleService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Models\Role;
+use Modules\ModuleRelease2\Services\Admin\LogActivityService;
+use Modules\ModuleRelease2\Services\Admin\RoleService;
 
 class LogActivityRoleController extends Controller
 {
@@ -35,7 +35,7 @@ class LogActivityRoleController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Log Activity By Role',
@@ -47,7 +47,7 @@ class LogActivityRoleController extends Controller
             'roles' => $roles,
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.log-activity.role.index', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.log-activity.role.index', $data);
     }
 
 

@@ -1,14 +1,14 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\AuthenticatedSessionController;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\ChangePasswordController;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\ConfirmablePasswordController;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\EmailVerificationNotificationController;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\NewPasswordController;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\PasswordResetLinkController;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\RegisteredUserController;
-use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\VerifyEmailController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\AuthenticatedSessionController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\ChangePasswordController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\ConfirmablePasswordController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\EmailVerificationNotificationController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\NewPasswordController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\PasswordResetLinkController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\RegisteredUserController;
+use Modules\ModuleRelease2\Http\Controllers\Api\Internal\Auth\VerifyEmailController;
 
 /**
  * Wrap route without authentication needed with middleware guest
@@ -19,7 +19,7 @@ use Modules\DesaModuleTemplate\Http\Controllers\Api\Internal\Auth\VerifyEmailCon
  * 4. Reset Password - 
  * 
  */
-Route::middleware(desa_module_template_meta('snake').'.guest')->group(function () {
+Route::middleware(module_release_2_meta('snake').'.guest')->group(function () {
     // Register
     Route::post('register', [RegisteredUserController::class, 'store'])->name('register');
 
@@ -45,7 +45,7 @@ Route::middleware(desa_module_template_meta('snake').'.guest')->group(function (
  */
 Route::get('verify-email/{user}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');
 
-Route::middleware(['auth:'.desa_module_template_meta('snake').'_api'])->group(function () {
+Route::middleware(['auth:'.module_release_2_meta('snake').'_api'])->group(function () {
     
     // Verify email
     Route::post('email/verification-notification', [EmailVerificationNotificationController::class, 'store'])->middleware('throttle:6,1')->name('verification.send');

@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-module-release-2::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -24,7 +24,7 @@
             intent="primary"
             class="ui-btn-solid rounded-lg" 
             size="md"
-            href="{{ route(desa_module_template_meta('kebab').'.admin.permissions.create') }}"
+            href="{{ route(module_release_2_meta('kebab').'.admin.permissions.create') }}"
         >
             <x-slot:iconBefore>
                 <span class="icon-[pepicons-pop--plus] text-lg"></span>
@@ -71,14 +71,14 @@
                         >
                             <div class="p-2">
                                 <a 
-                                    href="{{ route(desa_module_template_meta('kebab').'.admin.permissions.show', $permission->id) }}"
+                                    href="{{ route(module_release_2_meta('kebab').'.admin.permissions.show', $permission->id) }}"
                                     class="flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
                                 >
                                     <span class="icon-[proicons--eye] size-5"></span>
                                     <span class="ml-2 text-xs font-medium">View</span>
                                 </a>
                                 <a 
-                                    href="{{ route(desa_module_template_meta('kebab').'.admin.permissions.edit', $permission->id) }}"
+                                    href="{{ route(module_release_2_meta('kebab').'.admin.permissions.edit', $permission->id) }}"
                                     class="flex items-center w-full px-4 py-2 text-sm text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-700 rounded"
                                 >
                                     <span class="icon-[lucide--edit] size-4.5"></span>
@@ -148,7 +148,7 @@
                 </x-link>
 
                 <form 
-                    x-bind:action="`{{ route(desa_module_template_meta('kebab').'.admin.permissions.destroy', ['permission' => ':id']) }}`.replace(':id', selectedId)" 
+                    x-bind:action="`{{ route(module_release_2_meta('kebab').'.admin.permissions.destroy', ['permission' => ':id']) }}`.replace(':id', selectedId)" 
                     method="POST"
                 >
                     @csrf
@@ -167,4 +167,4 @@
         </div>
     </x-modal>
 
-</x-desa-module-template::admin-layout>
+</x-module-release-2::admin-layout>

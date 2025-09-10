@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\ModuleRelease2\Providers\Concerns;
 
 trait LoadAuthConfig
 {

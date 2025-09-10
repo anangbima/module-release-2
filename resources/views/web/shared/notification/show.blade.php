@@ -1,8 +1,8 @@
 <x-dynamic-component
-    :component="'desa-module-template::' . $role . '-layout'"
+    :component="'module-release-2::' . $role . '-layout'"
     :title="__($title)"
     :role="$role"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -48,7 +48,7 @@
             </div>
 
             <div>
-                <form method="POST" action="{{ route('desa-module-template.'.$role.'.notifications.destroy', $notification->id) }}">
+                <form method="POST" action="{{ route('module-release-2.'.$role.'.notifications.destroy', $notification->id) }}">
                     @csrf
                     @method('DELETE')
 
@@ -80,7 +80,7 @@
             <div>
                 <x-link
                     :intent="'ghost-border'" 
-                    href="{{ route(desa_module_template_meta('kebab').'.'.$role.'.notifications.index') }}"
+                    href="{{ route(module_release_2_meta('kebab').'.'.$role.'.notifications.index') }}"
                 >
                     Back
                 </x-link>

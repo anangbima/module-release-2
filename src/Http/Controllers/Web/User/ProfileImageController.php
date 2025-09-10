@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\User;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\User;
 
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Shared\UpdateProfileImageRequest;
-use Modules\DesaModuleTemplate\Services\User\ProfileService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Shared\UpdateProfileImageRequest;
+use Modules\ModuleRelease2\Services\User\ProfileService;
 
 class ProfileImageController extends Controller
 {
@@ -19,10 +19,10 @@ class ProfileImageController extends Controller
     {
         $data = [
             'title' => 'Change Profile Image',
-            'user' => auth(desa_module_template_meta('snake').'_web')->user(),
+            'user' => auth(module_release_2_meta('snake').'_web')->user(),
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.user.profile.image.edit', $data);
+        return view(module_release_2_meta('kebab').'::web.user.profile.image.edit', $data);
     }
 
     /**
@@ -32,7 +32,7 @@ class ProfileImageController extends Controller
     {
         $this->profileService->updateProfileImage($request->file('image'));
 
-        return redirect()->route(desa_module_template_meta('kebab').'.user.profile.index')
+        return redirect()->route(module_release_2_meta('kebab').'.user.profile.index')
             ->with('success', 'Profile image updated successfully.');
     }
 
@@ -43,7 +43,7 @@ class ProfileImageController extends Controller
     {
         $this->profileService->removeProfileImage();
 
-        return redirect()->route(desa_module_template_meta('kebab').'.user.profile.index')
+        return redirect()->route(module_release_2_meta('kebab').'.user.profile.index')
             ->with('success', 'Profile image removed successfully.');
     }
 }

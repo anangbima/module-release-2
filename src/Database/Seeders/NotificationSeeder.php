@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Database\Seeders;
+namespace Modules\ModuleRelease2\Database\Seeders;
 
 use Carbon\Carbon;
 use Illuminate\Database\Seeder;
-use Modules\DesaModuleTemplate\Models\Notification;
-use Modules\DesaModuleTemplate\Models\User;
-use Modules\DesaModuleTemplate\Services\Shared\PermissionRegistrar;
+use Modules\ModuleRelease2\Models\Notification;
+use Modules\ModuleRelease2\Models\User;
+use Modules\ModuleRelease2\Services\Shared\PermissionRegistrar;
 
 class NotificationSeeder extends Seeder
 {

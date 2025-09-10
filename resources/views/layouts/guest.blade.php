@@ -25,7 +25,7 @@
                     <span x-show="!isMobileMenuOpen" class="icon-[material-symbols--menu]"></span>
                 </button>
 
-                <x-link href="{{ route(desa_module_template_meta('kebab').'.login') }}" intent="primary" size="base" class="hidden lg:flex">
+                <x-link href="{{ route(module_release_2_meta('kebab').'.login') }}" intent="primary" size="base" class="hidden lg:flex">
                     <x-slot:iconBefore>
                         <span class="icon-[material-symbols--login] scale-[1.5]"></span>
                     </x-slot:iconBefore>

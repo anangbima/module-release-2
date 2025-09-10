@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Admin\StoreApiClientRequest;
-use Modules\DesaModuleTemplate\Models\ApiClient;
-use Modules\DesaModuleTemplate\Services\Admin\ApiClientService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Admin\StoreApiClientRequest;
+use Modules\ModuleRelease2\Models\ApiClient;
+use Modules\ModuleRelease2\Services\Admin\ApiClientService;
 
 class ApiClientController extends Controller
 {
@@ -26,7 +26,7 @@ class ApiClientController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Api Clients',
@@ -36,7 +36,7 @@ class ApiClientController extends Controller
             'apiClients' => $apiClients,
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.api-client.index', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.api-client.index', $data);
     }
 
     /**
@@ -49,11 +49,11 @@ class ApiClientController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Api Clients',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.api-clients.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.api-clients.index'),
                 ],
                  [
                     'name' => 'Api New API Clients',
@@ -62,7 +62,7 @@ class ApiClientController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.api-client.create', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.api-client.create', $data);
     }
 
     /**
@@ -72,7 +72,7 @@ class ApiClientController extends Controller
     {
         $this->apiClientService->createApiClient($request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.api-clients.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.api-clients.index')
             ->with('success', 'API Client created successfully.');
     }
 
@@ -89,11 +89,11 @@ class ApiClientController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Api Clients',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.api-clients.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.api-clients.index'),
                 ],
                 [
                     'name' => $apiClient->name,
@@ -102,7 +102,7 @@ class ApiClientController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.api-client.show', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.api-client.show', $data);
     }
 
     /**
@@ -112,7 +112,7 @@ class ApiClientController extends Controller
     {
         $this->apiClientService->deleteApiClient($apiClient->id);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.admin.api-clients.index')
+        return redirect()->route(module_release_2_meta('kebab').'.admin.api-clients.index')
             ->with('success', 'API Client deleted successfully.');
     }
 }

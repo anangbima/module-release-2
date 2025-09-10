@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Resources\Admin;
+namespace Modules\ModuleRelease2\Http\Resources\Admin;
 
 use Illuminate\Http\Resources\Json\JsonResource;
 

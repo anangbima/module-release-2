@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Traits;
+namespace Modules\ModuleRelease2\Traits;
 
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
-use Modules\DesaModuleTemplate\Models\Media;
-use Modules\DesaModuleTemplate\Models\MediaUsage;
+use Modules\ModuleRelease2\Models\Media;
+use Modules\ModuleRelease2\Models\MediaUsage;
 
 trait HasMedia
 {

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -9,11 +9,11 @@ use Illuminate\Support\Str;
 class MakeModelCommand extends Command
 {
     protected $signature;
-    protected $description = 'Generate a new model and migration for Desa Module Template';
+    protected $description = 'Generate a new model and migration for Module Release 2';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-model
+        $this->signature = 'module:modulerelease2:make-model
             {name : Model name (e.g. Table1)}';
 
         parent::__construct();
@@ -25,9 +25,9 @@ class MakeModelCommand extends Command
         $modelName = Str::studly($rawName);
         $tableName = Str::snake(Str::pluralStudly($modelName));
 
-        $modelDir = base_path('Modules/desa-module-template/src/Models');
-        $migrationDir = base_path('Modules/desa-module-template/src/Database/Migrations');
-        $moduleNamespace = 'Modules\\DesaModuleTemplate\\';
+        $modelDir = base_path('Modules/module-release-2/src/Models');
+        $migrationDir = base_path('Modules/module-release-2/src/Database/Migrations');
+        $moduleNamespace = 'Modules\\ModuleRelease2\\';
 
         $modelPath = "$modelDir/$modelName.php";
 
@@ -53,7 +53,7 @@ class MakeModelCommand extends Command
         $modelStub = File::get($modelStubPath);
         $modelStub = str_replace(
             ['{{namespace}}', '{{class}}', '{{config_key}}', '{{table_key}}', '{{fallback}}'],
-            ['Modules\\DesaModuleTemplate\\Models', $modelName, 'desa_module_template', $tableName, $tableName],
+            ['Modules\\ModuleRelease2\\Models', $modelName, 'module_release_2', $tableName, $tableName],
             $modelStub
         );
         File::put($modelPath, $modelStub);
@@ -78,7 +78,7 @@ class MakeModelCommand extends Command
         $migrationStub = File::get($migrationStubPath);
         $migrationStub = str_replace(
             ['{{class}}', '{{config_key}}', '{{table_key}}', '{{fallback}}', '{{module_namespace}}'],
-            [$migrationClass, desa_module_template_meta('snake'), 'table_name', $tableName, $moduleNamespace],
+            [$migrationClass, module_release_2_meta('snake'), 'table_name', $tableName, $moduleNamespace],
             $migrationStub
         );        
         File::put($migrationPath, $migrationStub);
@@ -87,7 +87,7 @@ class MakeModelCommand extends Command
         $this->newLine();
 
         // ==== CONFIG OVERRIDE ====
-        $configFolder = base_path('Modules/desa-module-template/config/'.$tableName);
+        $configFolder = base_path('Modules/module-release-2/config/'.$tableName);
         $uploadConfigPath = "$configFolder/upload.php";
         $tableConfigPath = "$configFolder/table.php";
 

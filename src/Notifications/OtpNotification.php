@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Notifications;
+namespace Modules\ModuleRelease2\Notifications;
 
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -38,7 +38,7 @@ class OtpNotification extends Notification implements ShouldQueue
 
         return (new MailMessage)
             ->subject('Kode OTP Login Anda')
-            ->view(desa_module_template_meta('kebab').'::emails.verify-otp', [
+            ->view(module_release_2_meta('kebab').'::emails.verify-otp', [
                 'otp' => $this->otp,
                 'user' => $notifiable,
             ]);

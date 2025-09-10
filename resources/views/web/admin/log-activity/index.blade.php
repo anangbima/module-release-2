@@ -1,7 +1,7 @@
-<x-desa-module-template::admin-layout
+<x-module-release-2::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -32,7 +32,7 @@
     </div>
 
     {{-- Table Section --}}
-    <x-desa-module-template::log-activity-table 
+    <x-module-release-2::log-activity-table 
         :logs="$logs"
     />
 
@@ -50,7 +50,7 @@
 
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'xlsx']) }}" 
+                    href="{{ route(module_release_2_meta('kebab').'.admin.logs.export', ['type' => 'xlsx']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--microsoft-excel] text-green-600 mr-2"></span>
@@ -58,7 +58,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'csv']) }}" 
+                    href="{{ route(module_release_2_meta('kebab').'.admin.logs.export', ['type' => 'csv']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--file-delimited] text-blue-600 mr-2"></span>
@@ -66,7 +66,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'pdf']) }}" 
+                    href="{{ route(module_release_2_meta('kebab').'.admin.logs.export', ['type' => 'pdf']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--file-pdf-box] text-red-600 mr-2"></span>
@@ -74,7 +74,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'docx']) }}" 
+                    href="{{ route(module_release_2_meta('kebab').'.admin.logs.export', ['type' => 'docx']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--microsoft-word] text-blue-700 mr-2"></span>
@@ -82,7 +82,7 @@
                 </a>
 
                 <a 
-                    href="{{ route(desa_module_template_meta('kebab').'.admin.logs.export', ['type' => 'json']) }}" 
+                    href="{{ route(module_release_2_meta('kebab').'.admin.logs.export', ['type' => 'json']) }}" 
                     class="bg-white dark:bg-slate-900 flex items-center justify-center border border-gray-300 dark:border-gray-700 rounded-lg px-3 py-2 text-sm hover:bg-gray-100 dark:hover:bg-gray-800 transition"
                 >
                     <span class="icon-[mdi--code-json] text-yellow-600 mr-2"></span>
@@ -98,4 +98,4 @@
         </x-slot>
     </x-modal>
 
-</x-desa-module-template::admin-layout>
+</x-module-release-2::admin-layout>

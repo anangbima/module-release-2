@@ -1,14 +1,14 @@
-<x-desa-module-template::admin-layout
+<x-module-release-2::admin-layout
     :title="__($title)"
     :role="'Admin'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
     {{-- Card --}}
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-8 mt-2">
         {{-- Total users card --}}
-        <a href="{{ route(desa_module_template_meta('kebab').'.admin.users.index') }}"
+        <a href="{{ route(module_release_2_meta('kebab').'.admin.users.index') }}"
         class="block transition hover:text-info">
             <div class="flex items-center justify-between">
                 <div>
@@ -87,7 +87,7 @@
         <div class="lg:col-span-1">
             <div class="flex justify-between items-center">
                 <h2 class="font-semibold">Recent Activity</h2>
-                <a class="text-xs" href="{{ route(desa_module_template_meta('kebab').'.admin.logs.index') }}">
+                <a class="text-xs" href="{{ route(module_release_2_meta('kebab').'.admin.logs.index') }}">
                     View All
                 </a>
             </div>
@@ -113,11 +113,11 @@
                                         </span>
 
                                         @php
-                                            $color = desa_module_template_action_color($log->action);
+                                            $color = module_release_2_action_color($log->action);
                                         @endphp
 
                                         <x-badge 
-                                            text="{{ desa_module_template_format_action($log->action) }}" 
+                                            text="{{ module_release_2_format_action($log->action) }}" 
                                             size="xs" 
                                             color="{{ $color }}"  
                                         />
@@ -196,4 +196,4 @@
     @endpush
     
 
-</x-desa-module-template::admin-layout>
+</x-module-release-2::admin-layout>

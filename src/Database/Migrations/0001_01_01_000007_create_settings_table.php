@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use Modules\DesaModuleTemplate\Database\Migrations\BaseMigration;
+use Modules\ModuleRelease2\Database\Migrations\BaseMigration;
 
 return new class extends BaseMigration
 {

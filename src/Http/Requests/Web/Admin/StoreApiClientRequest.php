@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Requests\Web\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,7 +18,7 @@ class StoreApiClientRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:desa_module_template.api_clients,name',
+                'unique:module_release_2.api_clients,name',
             ],
         ];
     }

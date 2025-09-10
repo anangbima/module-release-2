@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Guest;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Guest;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Models\Permission;
-use Modules\DesaModuleTemplate\Services\Shared\PermissionRegistrar;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Models\Permission;
+use Modules\ModuleRelease2\Services\Shared\PermissionRegistrar;
 
 class HomeController extends Controller
 {   
@@ -19,7 +19,7 @@ class HomeController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.index'),
+                    'url' => route(module_release_2_meta('kebab').'.index'),
                 ],
                 [
                     'name' => 'Home',
@@ -28,6 +28,6 @@ class HomeController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.guest.home.index', $data);
+        return view(module_release_2_meta('kebab').'::web.guest.home.index', $data);
     }
 }

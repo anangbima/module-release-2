@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Password Confirmation | Desa Module Template')">
+<x-module-release-2::auth-layout :title="__('Password Confirmation | Module Release 2')">
 
    <div class="rounded-xl pb-8 pt-6 px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-xl">
         <div>
@@ -10,7 +10,7 @@
                 @lang('Demi keamanan akun Anda, silakan masukkan kembali kata sandi sebelum melanjutkan.')
             </p>
 
-            <form action="{{ route(desa_module_template_meta('kebab').'.password.confirm') }}" method="POST">
+            <form action="{{ route(module_release_2_meta('kebab').'.password.confirm') }}" method="POST">
                 @csrf
 
                 <x-form.input-text 
@@ -38,4 +38,4 @@
         </div>
    </div>
 
-</x-desa-module-template::auth-layout>
+</x-module-release-2::auth-layout>

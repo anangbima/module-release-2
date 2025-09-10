@@ -3,7 +3,7 @@
 return [
     'tables' => [
         'users' => 'users',
-        'password_resets' => 'desa_module_template_password_reset_tokens',
-        'sessions' => 'desa_module_template_sessions',
+        'password_resets' => 'module_release_2_password_reset_tokens',
+        'sessions' => 'module_release_2_sessions',
     ],
 ];

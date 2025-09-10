@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use Modules\DesaModuleTemplate\Database\Migrations\BaseMigration;
+use Modules\ModuleRelease2\Database\Migrations\BaseMigration;
 
 return new class extends BaseMigration
 {
@@ -10,7 +10,7 @@ return new class extends BaseMigration
      */
     protected function table(string $base): string
     {
-        return 'desa_module_template_' . $base;
+        return 'module_release_2_' . $base;
     }
 
     public function up(): void

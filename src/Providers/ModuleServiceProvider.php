@@ -1,22 +1,22 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Providers;
+namespace Modules\ModuleRelease2\Providers;
 
 use Illuminate\Cache\CacheManager;
 use Illuminate\Contracts\Events\Dispatcher;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Modules\DesaModuleTemplate\Providers\Concerns\BindRepositories;
-use Modules\DesaModuleTemplate\Providers\Concerns\ConfigureNotifications;
-use Modules\DesaModuleTemplate\Providers\Concerns\ConfigurePermissions;
-use Modules\DesaModuleTemplate\Providers\Concerns\ConfigureSession;
-use Modules\DesaModuleTemplate\Providers\Concerns\LoadAuthConfig;
-use Modules\DesaModuleTemplate\Providers\Concerns\LoadDatabaseConfig;
-use Modules\DesaModuleTemplate\Providers\Concerns\LoadModelConfigs;
-use Modules\DesaModuleTemplate\Providers\Concerns\RegisterCommands;
-use Modules\DesaModuleTemplate\Providers\Concerns\RegisterHelpers;
-use Modules\DesaModuleTemplate\Providers\Concerns\RegisterMiddlewares;
-use Modules\DesaModuleTemplate\Services\Shared\PermissionRegistrar;
+use Modules\ModuleRelease2\Providers\Concerns\BindRepositories;
+use Modules\ModuleRelease2\Providers\Concerns\ConfigureNotifications;
+use Modules\ModuleRelease2\Providers\Concerns\ConfigurePermissions;
+use Modules\ModuleRelease2\Providers\Concerns\ConfigureSession;
+use Modules\ModuleRelease2\Providers\Concerns\LoadAuthConfig;
+use Modules\ModuleRelease2\Providers\Concerns\LoadDatabaseConfig;
+use Modules\ModuleRelease2\Providers\Concerns\LoadModelConfigs;
+use Modules\ModuleRelease2\Providers\Concerns\RegisterCommands;
+use Modules\ModuleRelease2\Providers\Concerns\RegisterHelpers;
+use Modules\ModuleRelease2\Providers\Concerns\RegisterMiddlewares;
+use Modules\ModuleRelease2\Services\Shared\PermissionRegistrar;
 
 class ModuleServiceProvider extends ServiceProvider
 {
@@ -50,10 +50,10 @@ class ModuleServiceProvider extends ServiceProvider
         }
 
         // load views from the module
-        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'desa-module-template');
+        $this->loadViewsFrom(__DIR__ . '/../../resources/views', 'module-release-2');
 
         // register view components
-        Blade::componentNamespace('Modules\\DesaModuleTemplate\\View\\Components', 'desa-module-template');
+        Blade::componentNamespace('Modules\\ModuleRelease2\\View\\Components', 'module-release-2');
 
         // load configure session
         $this->configureSession();
@@ -73,7 +73,7 @@ class ModuleServiceProvider extends ServiceProvider
     public function register()
     {
         // Merge configuration files from the module
-        $this->mergeConfigFrom(__DIR__ . '/../../config/general.php', 'desamoduletemplate');
+        $this->mergeConfigFrom(__DIR__ . '/../../config/general.php', 'modulerelease2');
         
         // Register the route servie provider for this module
         $this->app->register(RouteServiceProvider::class);

@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Admin;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Services\Admin\UserService;
-use Modules\DesaModuleTemplate\Services\Shared\LogActivityService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Services\Admin\UserService;
+use Modules\ModuleRelease2\Services\Shared\LogActivityService;
 
 class HomeController extends Controller
 {
@@ -26,7 +26,7 @@ class HomeController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.admin.index'),
+                    'url' => route(module_release_2_meta('kebab').'.admin.index'),
                 ],
                 [
                     'name' => 'Home',
@@ -37,6 +37,6 @@ class HomeController extends Controller
             'totalUsers' => $users->count()
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.admin.dashboard.index', $data);
+        return view(module_release_2_meta('kebab').'::web.admin.dashboard.index', $data);
     }
 }

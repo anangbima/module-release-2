@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Str;
@@ -9,11 +9,11 @@ use Illuminate\Support\Facades\File;
 class MakeRepositoryCommand extends Command
 {
     protected $signature;
-    protected $description = 'Generate a new repository and optionally its interface in the Desa Module Template module';
+    protected $description = 'Generate a new repository and optionally its interface in the Module Release 2 module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-repository
+        $this->signature = 'module:modulerelease2:make-repository
             {name : Repository name, e.g. ProductRepository}
             {--with-interface : Also generate interface if not exists}';
 
@@ -25,11 +25,11 @@ class MakeRepositoryCommand extends Command
         $className = Str::studly($this->argument('name'));
         $interfaceName = $className . 'Interface';
 
-        $repoNamespace = 'Modules\\DesaModuleTemplate\\Repositories';
-        $interfaceNamespace = 'Modules\\DesaModuleTemplate\\Repositories\\Interfaces';
+        $repoNamespace = 'Modules\\ModuleRelease2\\Repositories';
+        $interfaceNamespace = 'Modules\\ModuleRelease2\\Repositories\\Interfaces';
 
-        $repoPath = base_path('Modules/desa-module-template/src/Repositories/'.$className.'.php');
-        $interfacePath = base_path('Modules/desa-module-template/src/Repositories/Interfaces/'.$interfaceName.'.php');
+        $repoPath = base_path('Modules/module-release-2/src/Repositories/'.$className.'.php');
+        $interfacePath = base_path('Modules/module-release-2/src/Repositories/Interfaces/'.$interfaceName.'.php');
 
         File::ensureDirectoryExists(dirname($repoPath));
         File::ensureDirectoryExists(dirname($interfacePath));
@@ -109,7 +109,7 @@ class MakeRepositoryCommand extends Command
 
     protected function addBindingToTrait(string $interfaceNamespace, string $interfaceName, string $repoNamespace, string $repoClass): void
     {
-        $traitPath = base_path('Modules/desa-module-template/src/Providers/Concerns/BindRepositories.php');
+        $traitPath = base_path('Modules/module-release-2/src/Providers/Concerns/BindRepositories.php');
 
         if (!File::exists($traitPath)) {
             $this->newLine();

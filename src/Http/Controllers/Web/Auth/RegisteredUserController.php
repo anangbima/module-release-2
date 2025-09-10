@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Auth;
 
 use DesaDigitalSupport\RegionManager\Services\RegionService;
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\RegisterRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Auth\RegisterRequest;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationService;
 
 class RegisteredUserController extends Controller
 {
@@ -24,7 +24,7 @@ class RegisteredUserController extends Controller
             'title' => 'Register',
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.auth.register', $data);
+        return view(module_release_2_meta('kebab').'::web.auth.register', $data);
     }
 
     /**
@@ -36,6 +36,6 @@ class RegisteredUserController extends Controller
         
         $this->authService->register($request);
 
-        return redirect()->route(desa_module_template_meta('kebab').'.user.index');
+        return redirect()->route(module_release_2_meta('kebab').'.user.index');
     }
 }

@@ -1,12 +1,12 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Password;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\NewPasswordRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Auth\NewPasswordRequest;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationService;
 
 class NewPasswordController extends Controller
 {
@@ -24,7 +24,7 @@ class NewPasswordController extends Controller
             'request' => $request,
         ];
         // This method can be used to show a view for setting a new password.
-        return view(desa_module_template_meta('kebab').'::web.auth.reset-password', $data);
+        return view(module_release_2_meta('kebab').'::web.auth.reset-password', $data);
     }
 
     /**
@@ -35,7 +35,7 @@ class NewPasswordController extends Controller
         $status = $this->authService->resetPassword($request->validated());
 
         return $status == Password::PASSWORD_RESET
-                    ? view(desa_module_template_meta('kebab').'::web.auth.reset-password-success', ['status' => __($status)])
+                    ? view(module_release_2_meta('kebab').'::web.auth.reset-password-success', ['status' => __($status)])
                     : back()->withInput($request->only('email'))
                             ->withErrors(['email' => __($status)]);
     }

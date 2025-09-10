@@ -1,9 +1,9 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\User;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\User;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
 
 class HomeController extends Controller
 {
@@ -21,7 +21,7 @@ class HomeController extends Controller
             'breadcrumbs' => [
                 [
                     'name' => 'Dashboard',
-                    'url' => route(desa_module_template_meta('kebab').'.user.index'),
+                    'url' => route(module_release_2_meta('kebab').'.user.index'),
                 ],
                 [
                     'name' => 'Home',
@@ -30,6 +30,6 @@ class HomeController extends Controller
             ],
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.user.home.index', $data);
+        return view(module_release_2_meta('kebab').'::web.user.home.index', $data);
     }
 }

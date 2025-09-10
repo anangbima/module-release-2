@@ -1,6 +1,6 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\DB;
@@ -13,13 +13,13 @@ class MigrateCommand extends Command
      * @var string
      */
     protected $signature;
-    protected $description = 'Run migrations for Desa Module Template';
+    protected $description = 'Run migrations for Module Release 2';
 
     public function __construct()
     {
         // Set the command signature using the module prefix from the configuration
         // This allows the command to be namespaced under the module's prefix
-        $this->signature = 'module:desamoduletemplate:migrate
+        $this->signature = 'module:modulerelease2:migrate
                             {--fresh : Drop all tables and re-run all migrations}
                             {--refresh : Reset and re-run all migrations}
                             {--seed : Seed the module after migration}';
@@ -40,8 +40,8 @@ class MigrateCommand extends Command
             return 1; // Exit with error code
         }
 
-        $connection = config('desa_module_template.database.database_connection', 'desa_module_template');
-        $database = config('desa_module_template.database.connection.database', 'desa_module_template');
+        $connection = config('module_release_2.database.database_connection', 'module_release_2');
+        $database = config('module_release_2.database.connection.database', 'module_release_2');
         $defultConnection = config('database.default', 'mysql');
 
         // Check if the connection is set to the default connection
@@ -57,8 +57,8 @@ class MigrateCommand extends Command
             $this->info("Database {$database} exists. Proceeding with migrations.");
         }
 
-        $migrationPath = 'modules/desa-module-template/src/Database/Migrations';
-        $realMigrationPath = base_path('modules/desa-module-template/src/Database/Migrations');
+        $migrationPath = 'modules/module-release-2/src/Database/Migrations';
+        $realMigrationPath = base_path('modules/module-release-2/src/Database/Migrations');
 
         $this->info("Looking in: $migrationPath");
         $this->info("Found migration files: " . count(glob($migrationPath . '/*.php')));
@@ -86,7 +86,7 @@ class MigrateCommand extends Command
         // Optional: seed
         if ($this->option('seed')) {
             $this->call('db:seed', [
-                '--class' => 'Modules\\DesaModuleTemplate\\Database\\Seeders\\DatabaseSeeder',
+                '--class' => 'Modules\\ModuleRelease2\\Database\\Seeders\\DatabaseSeeder',
                 '--database' => $connection,
                 '--force' => true,
             ]);

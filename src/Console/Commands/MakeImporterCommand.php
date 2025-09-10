@@ -1,17 +1,17 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 
 class MakeImporterCommand extends Command
 {
     protected $signature;
-    protected $description = 'Generate a new importer for model Desa Module Template';
+    protected $description = 'Generate a new importer for model Module Release 2';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-importer
+        $this->signature = 'module:modulerelease2:make-importer
             {name : Importer name (e.g. TableImporter)}';
 
         parent::__construct();
@@ -22,8 +22,8 @@ class MakeImporterCommand extends Command
         $importerName = $this->argument('name'); // misalnya: Table1Importer
         $className = $importerName;              // Table1Importer
 
-        $namespace = 'Modules\\DesaModuleTemplate\\Importers';
-        $targetPath = base_path('Modules/desa-module-template/src/Importers/'.$className.'.php');
+        $namespace = 'Modules\\ModuleRelease2\\Importers';
+        $targetPath = base_path('Modules/module-release-2/src/Importers/'.$className.'.php');
         $stubPath = __DIR__ . '/../../../stubs/importer.stub';
 
         if (!file_exists($stubPath)) {

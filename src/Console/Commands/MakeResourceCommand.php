@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -9,11 +9,11 @@ use Illuminate\Support\Str;
 class MakeResourceCommand extends Command
 {
     protected $signature;
-    protected $description = 'Generate a new API resource for Desa Module Template';
+    protected $description = 'Generate a new API resource for Module Release 2';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-resource
+        $this->signature = 'module:modulerelease2:make-resource
             {name : Model name (e.g. Product)}';
 
         parent::__construct();
@@ -31,8 +31,8 @@ class MakeResourceCommand extends Command
         $subNamespace = implode('\\', array_map('Str::studly', $parts)); // e.g. User
         $subPath = implode('/', array_map('Str::studly', $parts));       // e.g. User
 
-        $namespace = 'Modules\\DesaModuleTemplate\\Http\\Resources' . ($subNamespace ? "\\{$subNamespace}" : '');
-        $targetPath = base_path("Modules/desa-module-template/src/Http/Resources"
+        $namespace = 'Modules\\ModuleRelease2\\Http\\Resources' . ($subNamespace ? "\\{$subNamespace}" : '');
+        $targetPath = base_path("Modules/module-release-2/src/Http/Resources"
             . ($subPath ? "/{$subPath}" : '')
             . "/{$className}.php");
 

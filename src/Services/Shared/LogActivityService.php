@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Shared;
+namespace Modules\ModuleRelease2\Services\Shared;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Request;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\LogActivityRepositoryInterface;
+use Modules\ModuleRelease2\Repositories\Interfaces\LogActivityRepositoryInterface;
 
 class LogActivityService
 {
@@ -27,7 +27,7 @@ class LogActivityService
             'model_type' => $model ? get_class($model) : null,
             'model_id' => $model?->id,
             'description' => $description,
-            'user_id' => desa_module_template_auth_user()?->id ?? null,
+            'user_id' => module_release_2_auth_user()?->id ?? null,
             'logged_at' => now(),
             'ip_address' => Request::ip(),
             'user_agent' => Request::userAgent(),

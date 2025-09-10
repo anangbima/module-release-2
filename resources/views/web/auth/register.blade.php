@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Regiter | Desa Module Template')">
+<x-module-release-2::auth-layout :title="__('Regiter | Module Release 2')">
 
     <div class="rounded-xl pb-8 pt-6 px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-4xl">
         <div>
@@ -10,7 +10,7 @@
                 @lang('Buat akun baru untuk mulai menggunakan layanan dan fitur yang tersedia.')
             </p>
 
-            <form action="{{ route(desa_module_template_meta('kebab').'.register') }}" method="POST" class="space-y-4">
+            <form action="{{ route(module_release_2_meta('kebab').'.register') }}" method="POST" class="space-y-4">
                 @csrf
                 @php
                     $emailIcon = '<span class="icon-[mage--email] text-lg"></span>';
@@ -71,7 +71,7 @@
                 </x-link>
 
                 <div class="flex items-start justify-end">
-                    <x-link href="{{ route(desa_module_template_meta('kebab').'.login') }}" intent="ghost">
+                    <x-link href="{{ route(module_release_2_meta('kebab').'.login') }}" intent="ghost">
                         @lang('Login')
                     </x-link>
                 </div>
@@ -79,4 +79,4 @@
         </div>
     </div>
 
-</x-desa-module-template::auth-layout>
+</x-module-release-2::auth-layout>

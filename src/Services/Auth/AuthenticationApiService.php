@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Auth;
+namespace Modules\ModuleRelease2\Services\Auth;
 
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Auth\Events\Registered;
@@ -9,12 +9,12 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Support\Facades\Validator;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\UserRepositoryInterface;
+use Modules\ModuleRelease2\Repositories\Interfaces\UserRepositoryInterface;
 use Tymon\JWTAuth\Exceptions\JWTException;
 use Tymon\JWTAuth\Facades\JWTAuth;
 use Illuminate\Support\Str;
-use Modules\DesaModuleTemplate\Http\Requests\Api\Auth\LoginRequest;
-use Modules\DesaModuleTemplate\Http\Resources\Shared\AuthenticatedUserResource;
+use Modules\ModuleRelease2\Http\Requests\Api\Auth\LoginRequest;
+use Modules\ModuleRelease2\Http\Resources\Shared\AuthenticatedUserResource;
 
 class AuthenticationApiService
 {
@@ -30,7 +30,7 @@ class AuthenticationApiService
         $credentials = $request->only(['email', 'password']);
 
         try {
-            if (!$token = auth('desa_module_template_api')->attempt($credentials)) {
+            if (!$token = auth('module_release_2_api')->attempt($credentials)) {
                 return [
                     'status' => 'error',
                     'code' => 401,
@@ -46,7 +46,7 @@ class AuthenticationApiService
         }
 
         
-        $user = auth('desa_module_template_api')->user();
+        $user = auth('module_release_2_api')->user();
         
         // Check if the user is verified
         if (!$user->hasVerifiedEmail()) {
@@ -268,7 +268,7 @@ class AuthenticationApiService
      */
     public function resetPassword(array $credentials)
     {
-        $status = Password::broker(desa_module_template_meta('snake') . '_users')->reset(
+        $status = Password::broker(module_release_2_meta('snake') . '_users')->reset(
             $credentials,
             function ($user) use ($credentials) {
                 $user->forceFill([
@@ -301,7 +301,7 @@ class AuthenticationApiService
      */
     public function sendPasswordResetLink(string $email)
     {
-        $status = Password::broker(desa_module_template_meta('snake') . '_users')->sendResetLink([
+        $status = Password::broker(module_release_2_meta('snake') . '_users')->sendResetLink([
             'email' => $email,
         ]);
 

@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Verify OTP | Desa Module Template')">
+<x-module-release-2::auth-layout :title="__('Verify OTP | Module Release 2')">
 
     <div class="rounded-xl pb-8 pt-6 px-6 sm:px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-xl w-full mx-auto">
         <div>
@@ -25,7 +25,7 @@
             @enderror
 
             {{-- OTP Form --}}
-            <form id="otp-form" action="{{ route(desa_module_template_meta('kebab').'.verify-otp') }}" method="POST" class="space-y-4 mt-6">
+            <form id="otp-form" action="{{ route(module_release_2_meta('kebab').'.verify-otp') }}" method="POST" class="space-y-4 mt-6">
                 @csrf
 
                 {{-- OTP Input Boxes --}}
@@ -55,7 +55,7 @@
             </form>
 
             {{-- Resend --}}
-            <form action="{{ route(desa_module_template_meta('kebab').'.verify-otp.resend') }}" method="POST" class="mt-4 text-end">
+            <form action="{{ route(module_release_2_meta('kebab').'.verify-otp.resend') }}" method="POST" class="mt-4 text-end">
                 @csrf
                 <x-link type="submit" intent="ghost" size="sm">
                     @lang('Resend OTP')
@@ -88,4 +88,4 @@
         }
     </script>
 
-</x-desa-module-template::auth-layout>
+</x-module-release-2::auth-layout>

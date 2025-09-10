@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Middleware;
+namespace Modules\ModuleRelease2\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Response;
 
 class CheckUserStatus
 {
-    public function handle(Request $request, Closure $next,  $guard = 'desa_module_template_web'): Response
+    public function handle(Request $request, Closure $next,  $guard = 'module_release_2_web'): Response
     {
         $user = Auth::guard($guard)->user();
 

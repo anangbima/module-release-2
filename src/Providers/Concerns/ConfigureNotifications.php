@@ -1,12 +1,12 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\ModuleRelease2\Providers\Concerns;
 
 use DesaDigitalSupport\NotificationProvider\Services\NotificationAggregator;
 use Illuminate\Notifications\ChannelManager;
 use Illuminate\Support\Facades\Notification;
-use Modules\DesaModuleTemplate\Channels\ModuleDatabaseChannel;
-use Modules\DesaModuleTemplate\Services\Shared\NotificationService;
+use Modules\ModuleRelease2\Channels\ModuleDatabaseChannel;
+use Modules\ModuleRelease2\Services\Shared\NotificationService;
 
 trait ConfigureNotifications
 {
@@ -14,7 +14,7 @@ trait ConfigureNotifications
     {
         // Register custom channel
         Notification::resolved(function (ChannelManager $service) {
-            $service->extend('desa_module_template_database', function ($app) {
+            $service->extend('module_release_2_database', function ($app) {
                 return new ModuleDatabaseChannel;
             });
         });

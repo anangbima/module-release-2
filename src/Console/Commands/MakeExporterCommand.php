@@ -1,17 +1,17 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 
 class MakeExporterCommand extends Command
 {
     protected $signature;
-    protected $description = 'Generate a new exporter for model Desa Module Template';
+    protected $description = 'Generate a new exporter for model Module Release 2';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-exporter
+        $this->signature = 'module:modulerelease2:make-exporter
             {name : Exporter name (e.g. TableExporter)}';
 
         parent::__construct();
@@ -22,8 +22,8 @@ class MakeExporterCommand extends Command
         $exporterName = $this->argument('name'); // misalnya: Table1Exporter
         $className = $exporterName;              // Table1Exporter
 
-        $namespace = 'Modules\\DesaModuleTemplate\\Exporters';
-        $targetPath = base_path('Modules/desa-module-template/src/Exporters/'.$className.'.php');
+        $namespace = 'Modules\\ModuleRelease2\\Exporters';
+        $targetPath = base_path('Modules/module-release-2/src/Exporters/'.$className.'.php');
         $stubPath = __DIR__ . '/../../../stubs/exporter.stub';
 
         if (!file_exists($stubPath)) {

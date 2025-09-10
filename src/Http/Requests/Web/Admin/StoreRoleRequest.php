@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Admin;
+namespace Modules\ModuleRelease2\Http\Requests\Web\Admin;
 
 use Illuminate\Foundation\Http\FormRequest;
 
@@ -18,11 +18,11 @@ class StoreRoleRequest extends FormRequest
                 'required',
                 'string',
                 'max:255',
-                'unique:desa_module_template.desa_module_template_roles,name',
+                'unique:module_release_2.module_release_2_roles,name',
             ],
             'permissions' => [
                 'array',
-                'exists:desa_module_template.desa_module_template_permissions,id',
+                'exists:module_release_2.module_release_2_permissions,id',
             ],
         ];
     }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Shared;
+namespace Modules\ModuleRelease2\Http\Requests\Web\Shared;
 
 use Illuminate\Foundation\Http\FormRequest;
 

@@ -1,7 +1,7 @@
-<x-desa-module-template::user-layout
+<x-module-release-2::user-layout
     :title="__($title)"
     :role="'User'"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -14,8 +14,8 @@
     </div>
 
     {{-- Table section --}}
-    <x-desa-module-template::log-activity-table 
+    <x-module-release-2::log-activity-table 
         :logs="$logs"
     />
 
-</x-desa-module-template::user-layout>
+</x-module-release-2::user-layout>

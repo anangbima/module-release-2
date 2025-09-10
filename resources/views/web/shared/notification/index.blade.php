@@ -1,8 +1,8 @@
 <x-dynamic-component
-    :component="'desa-module-template::' . $role . '-layout'"
+    :component="'module-release-2::' . $role . '-layout'"
     :title="__($title)"
     :role="$role"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -11,7 +11,7 @@
         {{-- Filter --}}
         <div class="flex gap-2 items-center mb-4 mt-1">
             <x-link 
-                href="{{ route(desa_module_template_meta('kebab').'.'.$role.'.notifications.index', ['filter' => 'all']) }}"
+                href="{{ route(module_release_2_meta('kebab').'.'.$role.'.notifications.index', ['filter' => 'all']) }}"
                 intent="primary" 
                 class="{{ $filter === 'all' ? 'ui-btn-solid' : '' }}" 
                 size="md" 
@@ -21,7 +21,7 @@
             </x-link>
 
             <x-link 
-                href="{{ route(desa_module_template_meta('kebab').'.'.$role.'.notifications.index', ['filter' => 'read']) }}"
+                href="{{ route(module_release_2_meta('kebab').'.'.$role.'.notifications.index', ['filter' => 'read']) }}"
                 intent="primary"
                 class="{{ $filter === 'read' ? 'ui-btn-solid' : '' }}" 
                 size="md"
@@ -31,7 +31,7 @@
             </x-link>
 
             <x-link 
-                href="{{ route(desa_module_template_meta('kebab').'.'.$role.'.notifications.index', ['filter' => 'unread']) }}"
+                href="{{ route(module_release_2_meta('kebab').'.'.$role.'.notifications.index', ['filter' => 'unread']) }}"
                 intent="primary"
                 class="{{ $filter === 'unread' ? 'ui-btn-solid' : '' }}" 
                 size="md"
@@ -44,7 +44,7 @@
         {{-- Action --}}
         <div class="flex gap-2 items-center">
             {{-- Mark all as read --}}
-            <form method="POST" action="{{ route('desa-module-template.'.$role.'.notifications.mark-all-as-read') }}">
+            <form method="POST" action="{{ route('module-release-2.'.$role.'.notifications.mark-all-as-read') }}">
                 @csrf
                 <x-link 
                     class="cursor-pointer"
@@ -84,7 +84,7 @@
 
             @forelse ($items as $notification)
                 <a 
-                    href="{{ route('desa-module-template.'.$role.'.notifications.show', $notification->id) }}" 
+                    href="{{ route('module-release-2.'.$role.'.notifications.show', $notification->id) }}" 
                     class="p-4 mb-4 rounded-lg border flex justify-between items-center gap-4 group
                         {{ $notification->read_at 
                             ? 'bg-white dark:bg-transparent hover:bg-gray-50 border-transparent' 
@@ -144,7 +144,7 @@
                     <div class="flex items-center gap-1 opacity-0 group-hover:opacity-100 transition">
                         <div>
                             @if (!$notification->read_at) 
-                                <form method="POST" action="{{ route('desa-module-template.'.$role.'.notifications.mark-as-read', $notification->id) }}">
+                                <form method="POST" action="{{ route('module-release-2.'.$role.'.notifications.mark-as-read', $notification->id) }}">
                                     @csrf
         
                                     <button 
@@ -159,7 +159,7 @@
                         </div>
 
                         <div>
-                            <form method="POST" action="{{ route('desa-module-template.'.$role.'.notifications.destroy', $notification->id) }}">
+                            <form method="POST" action="{{ route('module-release-2.'.$role.'.notifications.destroy', $notification->id) }}">
                                 @csrf
                                 @method('DELETE')
     
@@ -220,7 +220,7 @@
                     Cancel
                 </x-link>
 
-                <form method="POST" action="{{ route('desa-module-template.'.$role.'.notifications.clear-all') }}">
+                <form method="POST" action="{{ route('module-release-2.'.$role.'.notifications.clear-all') }}">
                     @csrf
                     
                     <x-link 

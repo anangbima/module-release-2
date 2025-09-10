@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\ChangePasswordRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Auth\ChangePasswordRequest;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationService;
 
 class ChangePasswordController extends Controller
 {
@@ -22,7 +22,7 @@ class ChangePasswordController extends Controller
             'title' => 'Change Password',
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.auth.change-password', $data);
+        return view(module_release_2_meta('kebab').'::web.auth.change-password', $data);
     }
     
     /**
@@ -32,6 +32,6 @@ class ChangePasswordController extends Controller
     {
         $this->authService->changePassword($request->validated());
 
-        return redirect()->route(desa_module_template_meta('kebab').'.login')->with('success', 'Password changed successfully.');
+        return redirect()->route(module_release_2_meta('kebab').'.login')->with('success', 'Password changed successfully.');
     }
 }

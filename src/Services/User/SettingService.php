@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\User;
+namespace Modules\ModuleRelease2\Services\User;
 
-use Modules\DesaModuleTemplate\Services\Shared\SettingService as SharedSettingService;
+use Modules\ModuleRelease2\Services\Shared\SettingService as SharedSettingService;
 
 class SettingService extends SharedSettingService
 {

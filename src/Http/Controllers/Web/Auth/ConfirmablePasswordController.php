@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Controllers\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Controllers\Web\Auth;
 
 use Illuminate\Http\Request;
-use Modules\DesaModuleTemplate\Http\Controllers\Controller;
-use Modules\DesaModuleTemplate\Http\Requests\Web\Auth\ConfirmablePasswordRequest;
-use Modules\DesaModuleTemplate\Services\Auth\AuthenticationService;
+use Modules\ModuleRelease2\Http\Controllers\Controller;
+use Modules\ModuleRelease2\Http\Requests\Web\Auth\ConfirmablePasswordRequest;
+use Modules\ModuleRelease2\Services\Auth\AuthenticationService;
 
 class ConfirmablePasswordController extends Controller
 {
@@ -22,7 +22,7 @@ class ConfirmablePasswordController extends Controller
             'title' => 'Confirm Password',
         ];
 
-        return view(desa_module_template_meta('kebab').'::web.auth.confirm-password', $data);
+        return view(module_release_2_meta('kebab').'::web.auth.confirm-password', $data);
     }
 
     /**

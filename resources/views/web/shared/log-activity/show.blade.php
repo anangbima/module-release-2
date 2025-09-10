@@ -1,8 +1,8 @@
 <x-dynamic-component
-    :component="'desa-module-template::' . $role . '-layout'"
+    :component="'module-release-2::' . $role . '-layout'"
     :title="__($title)"
     :role="$role"
-    :module="__(desa_module_template_meta('label'))"
+    :module="__(module_release_2_meta('label'))"
     :desa="config('app.name')"
     :breadcrumbs="$breadcrumbs"
 >
@@ -30,9 +30,9 @@
                 {{-- Action --}}
                 <div>
                     <x-badge 
-                        text="{{ desa_module_template_format_action($log->action) }}" 
+                        text="{{ module_release_2_format_action($log->action) }}" 
                         size="sm" 
-                        color="{{ desa_module_template_action_color($log->action) }}" 
+                        color="{{ module_release_2_action_color($log->action) }}" 
                     />
                 </div>
             </div>

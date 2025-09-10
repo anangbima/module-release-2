@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
@@ -14,11 +14,11 @@ class MakeRepositoryInterfaceCommand extends Command
      * @var string
      */
     protected $signature;
-    protected $description = 'Generate a new repository interface file in the Desa Module Template module';
+    protected $description = 'Generate a new repository interface file in the Module Release 2 module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-repository-interface
+        $this->signature = 'module:modulerelease2:make-repository-interface
             {name : Interface name with optional path, e.g. Product/ProductRepositoryInterface}';
 
         parent::__construct();
@@ -36,8 +36,8 @@ class MakeRepositoryInterfaceCommand extends Command
         $subPath = implode('/', array_map([Str::class, 'studly'], $pathParts));
         $namespaceSuffix = implode('\\', array_map([Str::class, 'studly'], $pathParts));
 
-        $namespace = 'Modules\\DesaModuleTemplate\\Repositories\\Interfaces' . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
-        $basePath = base_path('Modules/desa-module-template/src/Repositories/Interfaces' . ($subPath ? "/$subPath" : ''));
+        $namespace = 'Modules\\ModuleRelease2\\Repositories\\Interfaces' . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
+        $basePath = base_path('Modules/module-release-2/src/Repositories/Interfaces' . ($subPath ? "/$subPath" : ''));
         $filePath = "$basePath/{$className}.php";
 
         if (File::exists($filePath)) {

@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Providers\Concerns;
+namespace Modules\ModuleRelease2\Providers\Concerns;
 
 use Illuminate\Session\SessionManager;
 use Illuminate\Support\Facades\Session;
-use Modules\DesaModuleTemplate\Session\ModuleSessionHandler;
+use Modules\ModuleRelease2\Session\ModuleSessionHandler;
 
 trait ConfigureSession
 {
@@ -12,10 +12,10 @@ trait ConfigureSession
     {
         $this->app->resolving(SessionManager::class, function ($sessionManager) {
             config([
-                'session.driver'     => env('DESA_MODULE_TEMPLATE_SESSION_DRIVER', 'database'),
-                'session.connection' => env('DESA_MODULE_TEMPLATE_SESSION_CONNECTION', 'desa_module_template'),
-                'session.table'      => env('DESA_MODULE_TEMPLATE_SESSION_TABLE', 'desa_module_template_sessions'),
-                'session.cookie'     => env('DESA_MODULE_TEMPLATE_SESSION_COOKIE', 'desa_module_template_session'),
+                'session.driver'     => env('MODULE_RELEASE_2_SESSION_DRIVER', 'database'),
+                'session.connection' => env('MODULE_RELEASE_2_SESSION_CONNECTION', 'module_release_2'),
+                'session.table'      => env('MODULE_RELEASE_2_SESSION_TABLE', 'module_release_2_sessions'),
+                'session.cookie'     => env('MODULE_RELEASE_2_SESSION_COOKIE', 'module_release_2_session'),
             ]);
         });
         

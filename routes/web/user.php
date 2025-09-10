@@ -1,21 +1,21 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\User\HomeController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\User\LogActivityController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\User\NotificationController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\User\ProfileController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\User\ProfileImageController;
+use Modules\ModuleRelease2\Http\Controllers\Web\User\HomeController;
+use Modules\ModuleRelease2\Http\Controllers\Web\User\LogActivityController;
+use Modules\ModuleRelease2\Http\Controllers\Web\User\NotificationController;
+use Modules\ModuleRelease2\Http\Controllers\Web\User\ProfileController;
+use Modules\ModuleRelease2\Http\Controllers\Web\User\ProfileImageController;
 
 /**
  * Wrap with prefix adn name 'user'
  * Authentication 
  */
-Route::prefix('user')->middleware(desa_module_template_meta('snake').'-auth')->group(function () {
+Route::prefix('user')->middleware(module_release_2_meta('snake').'-auth')->group(function () {
     /**
      * Check role 
      */
-    Route::middleware(desa_module_template_meta('snake').'.role:'.desa_module_template_meta('snake').'_web,user', desa_module_template_meta('snake').'.verified', desa_module_template_meta('snake').'.status')->name('user.')->group(function () {
+    Route::middleware(module_release_2_meta('snake').'.role:'.module_release_2_meta('snake').'_web,user', module_release_2_meta('snake').'.verified', module_release_2_meta('snake').'.status')->name('user.')->group(function () {
         // Index
         Route::get('/', [HomeController::class, 'index'])->name('index');
 

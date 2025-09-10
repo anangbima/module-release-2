@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Console\Commands;
+namespace Modules\ModuleRelease2\Console\Commands;
 
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
@@ -17,11 +17,11 @@ class MakeControllerCommand extends Command
     /**
      * Description of the command.
      */
-    protected $description = 'Generate a new controller file in the Desa Module Template module';
+    protected $description = 'Generate a new controller file in the Module Release 2 module';
 
     public function __construct()
     {
-        $this->signature = 'module:desamoduletemplate:make-controller
+        $this->signature = 'module:modulerelease2:make-controller
             {name : Controller name with optional path, e.g. Admin/ProductController}';
 
         parent::__construct();
@@ -36,10 +36,10 @@ class MakeControllerCommand extends Command
         $subPath = implode('/', array_map([Str::class, 'studly'], $pathParts));
         $namespaceSuffix = implode('\\', array_map([Str::class, 'studly'], $pathParts));
 
-        $namespace = 'Modules\\DesaModuleTemplate\\Http\\Controllers' . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
-        $basePath = base_path('Modules/desa-module-template/src/Http/Controllers' . ($subPath ? '/' . $subPath : ''));
+        $namespace = 'Modules\\ModuleRelease2\\Http\\Controllers' . ($namespaceSuffix ? "\\$namespaceSuffix" : '');
+        $basePath = base_path('Modules/module-release-2/src/Http/Controllers' . ($subPath ? '/' . $subPath : ''));
         $filePath = "$basePath/{$className}.php";
-        $controllerNamespace = 'Modules\\DesaModuleTemplate\\Http\\Controllers';
+        $controllerNamespace = 'Modules\\ModuleRelease2\\Http\\Controllers';
 
         if (!File::exists($basePath)) {
             File::makeDirectory($basePath, 0755, true);

@@ -1,8 +1,8 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Traits;
+namespace Modules\ModuleRelease2\Traits;
 
-use Modules\DesaModuleTemplate\Services\Shared\SlugService;
+use Modules\ModuleRelease2\Services\Shared\SlugService;
 
 trait HasSlug
 {

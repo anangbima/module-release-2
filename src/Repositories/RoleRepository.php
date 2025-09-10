@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories;
+namespace Modules\ModuleRelease2\Repositories;
 
-use Modules\DesaModuleTemplate\Models\Role;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\RoleRepositoryInterface;
-use Modules\DesaModuleTemplate\Traits\HasRelationable;
+use Modules\ModuleRelease2\Models\Role;
+use Modules\ModuleRelease2\Repositories\Interfaces\RoleRepositoryInterface;
+use Modules\ModuleRelease2\Traits\HasRelationable;
 
 class RoleRepository implements RoleRepositoryInterface
 {

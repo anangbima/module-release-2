@@ -1,11 +1,11 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Services\Admin;
+namespace Modules\ModuleRelease2\Services\Admin;
 
 use Illuminate\Support\Facades\Auth;
-use Modules\DesaModuleTemplate\Repositories\Interfaces\RoleRepositoryInterface;
-use Modules\DesaModuleTemplate\Services\Shared\LogActivityService;
-use Modules\DesaModuleTemplate\Services\Shared\NotificationService;
+use Modules\ModuleRelease2\Repositories\Interfaces\RoleRepositoryInterface;
+use Modules\ModuleRelease2\Services\Shared\LogActivityService;
+use Modules\ModuleRelease2\Services\Shared\NotificationService;
 
 class RoleService
 {
@@ -39,7 +39,7 @@ class RoleService
         $permissions = $data['permissions'] ?? [];
         unset($data['permissions']);
 
-        $data['guard_name'] = desa_module_template_meta('snake').'_web';
+        $data['guard_name'] = module_release_2_meta('snake').'_web';
 
         // Create the role
         $roleCreated = $this->roleRepository->create($data);
@@ -74,7 +74,7 @@ class RoleService
         $permissions = $data['permissions'] ?? [];
         unset($data['permissions']);
         
-        $data['guard_name'] = desa_module_template_meta('snake').'_web';
+        $data['guard_name'] = module_release_2_meta('snake').'_web';
 
         $role = $this->roleRepository->find($id);
 

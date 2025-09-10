@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Middleware;
+namespace Modules\ModuleRelease2\Http\Middleware;
 
 use Closure;
 use Illuminate\Http\Request;
@@ -9,17 +9,17 @@ use Symfony\Component\HttpFoundation\Response;
 
 class RedirectIfAuthenticated
 {
-    public function handle(Request $request, Closure $next, string $guard = 'desa_module_template_web')
+    public function handle(Request $request, Closure $next, string $guard = 'module_release_2_web')
     {
         if (Auth::guard($guard)->check()) {
             $user = Auth::guard($guard)->user();
 
             // Redirect berdasarkan role
             if ($user->hasRole('admin')) {
-                return redirect()->route(desa_module_template_meta('kebab').'.admin.index');
+                return redirect()->route(module_release_2_meta('kebab').'.admin.index');
             }
 
-            return redirect()->route(desa_module_template_meta('kebab').'.user.index');
+            return redirect()->route(module_release_2_meta('kebab').'.user.index');
         }
 
         return $next($request);

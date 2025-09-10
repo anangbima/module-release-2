@@ -1,6 +1,6 @@
 <?php 
 
-namespace Modules\DesaModuleTemplate\Providers;
+namespace Modules\ModuleRelease2\Providers;
 
 use Illuminate\Cache\RateLimiting\Limit;
 use Illuminate\Http\Request;
@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\Broadcast;
 use Illuminate\Support\Facades\RateLimiter;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Support\ServiceProvider;
-use Modules\DesaModuleTemplate\Http\Middleware\EnsureAuthenticated;
+use Modules\ModuleRelease2\Http\Middleware\EnsureAuthenticated;
 
 class RouteServiceProvider extends ServiceProvider
 {
@@ -22,39 +22,39 @@ class RouteServiceProvider extends ServiceProvider
         // load configure limiting
         $this->configureRateLimiting();
 
-        Route::middlewareGroup('desa_module_template-auth', [
-            EnsureAuthenticated::class . ':desa_module_template_web',
+        Route::middlewareGroup('module_release_2-auth', [
+            EnsureAuthenticated::class . ':module_release_2_web',
         ]);
 
         // web routes with custom module guard and session config override
         $this->loadRoutesFromDirectory(
             directory: __DIR__ . '/../../routes/web',
             middleware: ['web'],
-            prefix: 'desa-module-template',
-            name: 'desa-module-template'
+            prefix: 'module-release-2',
+            name: 'module-release-2'
         );
 
         // api routes with custom module guard
         $this->loadRoutesFromDirectory(
             directory: __DIR__ . '/../../routes/api',
             middleware: ['api'],
-            prefix: 'desa-module-template/api',
-            name: 'desa-module-template.api'
+            prefix: 'module-release-2/api',
+            name: 'module-release-2.api'
         );
 
         // external api routes with custom module guard
         $this->loadRoutesFromDirectory(
             directory: __DIR__ . '/../../routes/external-api',
-            middleware: ['api', 'desa_module_template.verify_api_client'],
-            prefix: 'desa-module-template/external-api',
-            name: 'desa-module-template.external-api'
+            middleware: ['api', 'module_release_2.verify_api_client'],
+            prefix: 'module-release-2/external-api',
+            name: 'module-release-2.external-api'
         );
 
         // channel routes
         $this->loadChannelRoutes(
             directory: __DIR__ . '/../../routes/channels',
-            middleware: ['web', 'auth:desa_module_template_web'],
-            prefix: 'desa-module-template'
+            middleware: ['web', 'auth:module_release_2_web'],
+            prefix: 'module-release-2'
         );
     }
 

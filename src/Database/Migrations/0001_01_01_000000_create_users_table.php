@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Database\Schema\Blueprint;
-use Modules\DesaModuleTemplate\Database\Migrations\BaseMigration;
+use Modules\ModuleRelease2\Database\Migrations\BaseMigration;
 
 return new class extends BaseMigration
 {
@@ -30,13 +30,13 @@ return new class extends BaseMigration
             $table->timestamps();
         });
 
-        $this->schema()->create('desa_module_template_password_reset_tokens', function (Blueprint $table) {
+        $this->schema()->create('module_release_2_password_reset_tokens', function (Blueprint $table) {
             $table->string('email')->primary();
             $table->string('token');
             $table->timestamp('created_at')->nullable();
         });
 
-        $this->schema()->create('desa_module_template_sessions', function (Blueprint $table) {
+        $this->schema()->create('module_release_2_sessions', function (Blueprint $table) {
             $table->string('id')->primary();
             $table->foreignUlid('user_id')->nullable()->index();
             $table->string('ip_address', 45)->nullable();
@@ -51,8 +51,8 @@ return new class extends BaseMigration
      */
     public function down(): void
     {
-        $this->schema()->dropIfExists('desa_module_template_sessions');
-        $this->schema()->dropIfExists('desa_module_template_password_reset_tokens');
+        $this->schema()->dropIfExists('module_release_2_sessions');
+        $this->schema()->dropIfExists('module_release_2_password_reset_tokens');
         $this->schema()->dropIfExists('users');
     }
 };

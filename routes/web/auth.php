@@ -1,17 +1,17 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\AuthenticatedSessionController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\ChangePasswordController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\ConfirmablePasswordController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\EmailVerificationNotificationController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\EmailVerificationPromptController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\NewPasswordController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\OtpVerificationController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\PasswordResetLinkController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\RegisteredUserController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\SocialLoginController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\VerifyEmailController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\AuthenticatedSessionController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\ChangePasswordController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\ConfirmablePasswordController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\EmailVerificationNotificationController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\EmailVerificationPromptController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\NewPasswordController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\OtpVerificationController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\PasswordResetLinkController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\RegisteredUserController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\SocialLoginController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Auth\VerifyEmailController;
 
 /**
  * Wrap route without authentication needed with middleware guest
@@ -24,7 +24,7 @@ use Modules\DesaModuleTemplate\Http\Controllers\Web\Auth\VerifyEmailController;
  * 6. Socialite - ⛔
  * 
  */
-Route::middleware(desa_module_template_meta('snake').'.guest')->group(function () {
+Route::middleware(module_release_2_meta('snake').'.guest')->group(function () {
     // Register
     Route::get('register', [RegisteredUserController::class, 'create'])->name('register');
     Route::post('register', [RegisteredUserController::class, 'store']);
@@ -60,7 +60,7 @@ Route::middleware(desa_module_template_meta('snake').'.guest')->group(function (
  * 4. Logout - ✅✅
  * 
  */
-Route::middleware(desa_module_template_meta('snake').'-auth')->group(function () {
+Route::middleware(module_release_2_meta('snake').'-auth')->group(function () {
     // Verifiy email 
     Route::get('verify-email', [EmailVerificationPromptController::class, '__invoke'])->name('verification.notice');
     Route::get('verify-email/{user}/{hash}', [VerifyEmailController::class, '__invoke'])->middleware(['signed', 'throttle:6,1'])->name('verification.verify');

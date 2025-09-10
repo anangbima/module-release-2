@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Notifications;
+namespace Modules\ModuleRelease2\Notifications;
 
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Bus\Queueable;
@@ -23,7 +23,7 @@ class GeneralNotification extends Notification implements ShouldQueue
      */
     public function via($notifiable): array
     {
-        return ['desa_module_template_database', 'broadcast'];
+        return ['module_release_2_database', 'broadcast'];
     }
 
     /**
@@ -58,7 +58,7 @@ class GeneralNotification extends Notification implements ShouldQueue
     {
         return [
             new PrivateChannel(
-                'desa-module-template.notifications.' . $this->userId
+                'module-release-2.notifications.' . $this->userId
             ),
         ];
     }

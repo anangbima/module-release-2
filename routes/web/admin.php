@@ -1,30 +1,30 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\ApiClientController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\ApiClientStatusController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\HomeController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\LogActivityController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\LogActivityRoleController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\LogActivityUserController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\NotificationController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\PermissionController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\ProfileController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\ProfileImageController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\RoleController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\SettingController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\UserController;
-use Modules\DesaModuleTemplate\Http\Controllers\Web\Admin\UserStatusController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\ApiClientController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\ApiClientStatusController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\HomeController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\LogActivityController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\LogActivityRoleController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\LogActivityUserController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\NotificationController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\PermissionController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\ProfileController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\ProfileImageController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\RoleController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\SettingController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\UserController;
+use Modules\ModuleRelease2\Http\Controllers\Web\Admin\UserStatusController;
 
 /**
  * Wrap with prefix adn name 'admin'
  * Authentication 
  */
-Route::prefix('admin')->middleware(desa_module_template_meta('snake') . '-auth')->group(function () {
+Route::prefix('admin')->middleware(module_release_2_meta('snake') . '-auth')->group(function () {
     /**
      * Check role 
      */
-    Route::middleware(desa_module_template_meta('snake') . '.role:' . desa_module_template_meta('snake') . '_web,admin')->name('admin.')->group(function () {
+    Route::middleware(module_release_2_meta('snake') . '.role:' . module_release_2_meta('snake') . '_web,admin')->name('admin.')->group(function () {
         // Index
         Route::get('/', [HomeController::class, 'index'])->name('index');
 

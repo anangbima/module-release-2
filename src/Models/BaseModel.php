@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\ModuleRelease2\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -22,7 +22,7 @@ abstract class BaseModel extends Model
     {
         parent::__construct($attributes);
 
-        $this->connection = config(desa_module_template_meta('snake').'.database.database_connection', 'desa_module_template');
+        $this->connection = config(module_release_2_meta('snake').'.database.database_connection', 'module_release_2');
         $this->table = $this->resolveTableName();
     }
 

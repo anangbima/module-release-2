@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Session;
+namespace Modules\ModuleRelease2\Session;
 
 use Illuminate\Session\DatabaseSessionHandler;
 use Illuminate\Support\Facades\Auth;
@@ -14,11 +14,11 @@ class ModuleSessionHandler extends DatabaseSessionHandler
     public function write($sessionId, $data): bool
     {
         Log::info('Custom ModuleSessionHandler dipanggil', [
-            'guard_user' => Auth::guard('desa_module_template_web')->id(),
+            'guard_user' => Auth::guard('module_release_2_web')->id(),
         ]);
 
         // Ambil user dari guard modul
-        $userId = Auth::guard('desa_module_template_web')->id();
+        $userId = Auth::guard('module_release_2_web')->id();
 
         $payload = $this->getDefaultPayload($data);
 

@@ -3,7 +3,7 @@
 namespace {{namespace}};
 
 use Illuminate\Http\UploadedFile;
-use Modules\DesaModuleTemplate\Services\Shared\ImportService;
+use Modules\ModuleRelease2\Services\Shared\ImportService;
 
 class {{class}} extends BaseImporter
 {

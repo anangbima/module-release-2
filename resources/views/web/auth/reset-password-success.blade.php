@@ -1,4 +1,4 @@
-<x-desa-module-template::auth-layout :title="__('Reset Password Success | Desa Module Template')">
+<x-module-release-2::auth-layout :title="__('Reset Password Success | Module Release 2')">
 
     <div class="rounded-xl pb-10 pt-8 px-8 shadow-2xl bg-white dark:bg-slate-900 animate-scale-in max-w-md text-center">
         
@@ -21,7 +21,7 @@
 
         {{-- Action Button --}}
         <x-link 
-            :href="route(desa_module_template_meta('kebab').'.login')" 
+            :href="route(module_release_2_meta('kebab').'.login')" 
             intent="primary" 
             size="lg" 
             class="w-full"
@@ -34,4 +34,4 @@
 
     </div>
     
-</x-desa-module-template::auth-layout>
+</x-module-release-2::auth-layout>

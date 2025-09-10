@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Repositories\Interfaces;
+namespace Modules\ModuleRelease2\Repositories\Interfaces;
 
 interface MediaUsageRepositoryInterface
 {

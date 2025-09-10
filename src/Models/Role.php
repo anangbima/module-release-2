@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\ModuleRelease2\Models;
 
 use Illuminate\Database\Eloquent\Concerns\HasUlids;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -12,19 +12,19 @@ class Role extends SpatieRole
     
     public function getConnectionName()
     {
-        return config('desamoduletemplate.permission.connection', 'desa_module_template');
+        return config('modulerelease2.permission.connection', 'module_release_2');
     }
 
     public function getTable()
     {
-        return config('desamoduletemplate.permission.table_names.roles', 'desa_module_template_roles');
+        return config('modulerelease2.permission.table_names.roles', 'module_release_2_roles');
     }
 
     public function permissions(): BelongsToMany
     {
         return $this->belongsToMany(
             Permission::class,
-            config('desamoduletemplate.permission.table_names.role_has_permissions', 'desa_module_template_role_has_permissions'),
+            config('modulerelease2.permission.table_names.role_has_permissions', 'module_release_2_role_has_permissions'),
             'role_id',
             'permission_id'
         );
@@ -34,7 +34,7 @@ class Role extends SpatieRole
     {
         return $this->belongsToMany(
             User::class,
-            config('desamoduletemplate.permission.table_names.model_has_roles', 'desa_module_template_model_has_roles'),
+            config('modulerelease2.permission.table_names.model_has_roles', 'module_release_2_model_has_roles'),
             'role_id',
             'model_id'
         )->withPivot('model_type');

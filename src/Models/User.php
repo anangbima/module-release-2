@@ -1,27 +1,27 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Models;
+namespace Modules\ModuleRelease2\Models;
 
 use DesaDigitalSupport\RegionManager\Services\RegionService;
-use Modules\DesaModuleTemplate\Models\BaseAuthModel;
-use Modules\DesaModuleTemplate\Traits\HasSlug;
+use Modules\ModuleRelease2\Models\BaseAuthModel;
+use Modules\ModuleRelease2\Traits\HasSlug;
 use Illuminate\Auth\MustVerifyEmail;
 use Illuminate\Contracts\Auth\MustVerifyEmail as AuthMustVerifyEmail;
 use Illuminate\Notifications\Notifiable;
 use Spatie\Permission\Traits\HasRoles;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Support\Arr;
-use Modules\DesaModuleTemplate\Database\Factories\UserFactory;
-use Modules\DesaModuleTemplate\Notifications\ResetPasswordNotification;
-use Modules\DesaModuleTemplate\Notifications\VerifyEmailNotification;
-use Modules\DesaModuleTemplate\Traits\HasMedia;
+use Modules\ModuleRelease2\Database\Factories\UserFactory;
+use Modules\ModuleRelease2\Notifications\ResetPasswordNotification;
+use Modules\ModuleRelease2\Notifications\VerifyEmailNotification;
+use Modules\ModuleRelease2\Traits\HasMedia;
 use Tymon\JWTAuth\Contracts\JWTSubject;
 
 class User extends BaseAuthModel implements AuthMustVerifyEmail, JWTSubject
 {
     use Notifiable, HasRoles, SoftDeletes, MustVerifyEmail, HasSlug, HasMedia;
 
-    protected $guard_name = 'desa_module_template_web';
+    protected $guard_name = 'module_release_2_web';
     protected $slugSource = 'name';
 
     public function __construct(array $attributes = [])
@@ -195,7 +195,7 @@ class User extends BaseAuthModel implements AuthMustVerifyEmail, JWTSubject
     {
         return $this->belongsToMany(
             Role::class,
-            config('desamoduletemplate.permission.table_names.model_has_roles', 'desa_module_template_model_has_roles'),
+            config('modulerelease2.permission.table_names.model_has_roles', 'module_release_2_model_has_roles'),
             'model_id',
             'role_id'
         )
@@ -211,7 +211,7 @@ class User extends BaseAuthModel implements AuthMustVerifyEmail, JWTSubject
     {
         return $this->belongsToMany(
             Permission::class,
-            config('desamoduletemplate.permission.table_names.model_has_permissions', 'desa_module_template_model_has_permissions'),
+            config('modulerelease2.permission.table_names.model_has_permissions', 'module_release_2_model_has_permissions'),
             'model_id',
             'permission_id'
         );

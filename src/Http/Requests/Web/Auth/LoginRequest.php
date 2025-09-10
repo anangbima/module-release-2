@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\DesaModuleTemplate\Http\Requests\Web\Auth;
+namespace Modules\ModuleRelease2\Http\Requests\Web\Auth;
 
 use Illuminate\Auth\Events\Lockout;
 use Illuminate\Foundation\Http\FormRequest;
@@ -43,7 +43,7 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
         
-        if (! Auth::guard(desa_module_template_meta('snake').'_web')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
+        if (! Auth::guard(module_release_2_meta('snake').'_web')->attempt($this->only('email', 'password'), $this->boolean('remember'))) {
 
             RateLimiter::hit($this->throttleKey());
 

@@ -1,1 +1,1 @@
-export const MODULE_PREFIX = "desa-module-template";
+export const MODULE_PREFIX = "module-release-2";
