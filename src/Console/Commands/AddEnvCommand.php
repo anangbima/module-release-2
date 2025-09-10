@@ -39,6 +39,7 @@ class AddEnvCommand extends Command
             'MODULE_RELEASE_2_SESSION_CONNECTION' => 'module_release_2',
             'MODULE_RELEASE_2_SESSION_TABLE' => 'module_release_2_sessions',
             'MODULE_RELEASE_2_SESSION_COOKIE' => 'module_release_2_session',
+            ''
         ];
 
         $envPath = base_path('.env');
