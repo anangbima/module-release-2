@@ -1,0 +1,25 @@
+<?php
+
+namespace {{namespace}};
+
+class {{class}} extends BaseModel
+{
+    /**
+     * Resolve table name from config
+     */
+    protected function resolveTableName(): string
+    {
+        return config('{{config_key}}.tables.{{table_key}}', '{{fallback}}');
+    }
+
+    protected $guarded = ['id'];
+
+    protected $fillable = [
+        // 'name',
+        // 'slug',
+        // 'image_path',
+        // 'document_path',
+        // 'video_path',
+        // 'archive_path',
+    ];
+}

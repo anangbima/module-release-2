@@ -1,0 +1,21 @@
+<?php
+
+use Illuminate\Database\Schema\Blueprint;
+use {{module_namespace}}Database\Migrations\BaseMigration;
+
+return new class extends BaseMigration
+{
+    public function up(): void
+    {
+        $this->schema()->create('{{fallback}}', function (Blueprint $table) {
+            $table->ulid('id')->primary();
+            $table->string('name');
+            $table->timestamps();
+        });
+    }
+
+    public function down(): void
+    {
+        $this->schema()->dropIfExists('{{fallback}}');
+    }
+};

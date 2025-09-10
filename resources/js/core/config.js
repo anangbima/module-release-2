@@ -1,0 +1,1 @@
+export const MODULE_PREFIX = "desa-module-template";

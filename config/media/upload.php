@@ -1,0 +1,27 @@
+<?php
+
+return [
+    'image' => [
+        'upload_path' => 'uploads/media/images',
+        'max_size' => 2048,
+        'allowed_types' => ['jpg', 'jpeg', 'png', 'webp'],
+    ],
+
+    'document' => [
+        'upload_path' => 'uploads/media/documents',
+        'max_size' => 5120,
+        'allowed_types' => ['pdf', 'docx', 'xls', 'xlsx', 'pptx'],
+    ],
+
+    'video' => [
+        'upload_path' => 'uploads/media/videos',
+        'max_size' => 10240,
+        'allowed_types' => ['mp4', 'mov', 'avi'],
+    ],
+
+    'archive' => [
+        'upload_path' => 'uploads/media/archives',
+        'max_size' => 20480,
+        'allowed_types' => ['zip', 'rar', '7z'],
+    ],
+];

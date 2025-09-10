@@ -1,0 +1,10 @@
+<?php
+
+namespace {{namespace}};
+
+use {{interface_namespace}}\{{interface}};
+
+class {{class}} implements {{interface}}
+{
+    //
+}

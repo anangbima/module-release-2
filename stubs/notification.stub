@@ -1,0 +1,52 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Bus\Queueable;
+use Illuminate\Contracts\Queue\ShouldQueue;
+use Illuminate\Notifications\Notification;
+use Illuminate\Notifications\Messages\MailMessage;
+
+class {{class}} extends Notification implements ShouldQueue
+{
+    use Queueable;
+
+    /**
+     * Create a new notification instance.
+     */
+    public function __construct()
+    {
+        //
+    }
+
+    /**
+     * Get the notification's delivery channels.
+     */
+    public function via($notifiable): array
+    {
+        return ['mail'];
+    }
+
+    /**
+     * Get the mail representation of the notification.
+     */
+    public function toMail($notifiable): MailMessage
+    {
+        return (new MailMessage)
+            ->subject('Judul Notifikasi')
+            ->greeting('Halo!')
+            ->line('Ini adalah contoh notifikasi.')
+            ->action('Klik di sini', url('/'))
+            ->line('Terima kasih telah menggunakan aplikasi kami!');
+    }
+
+    /**
+     * Get the array representation of the notification.
+     */
+    public function toArray($notifiable): array
+    {
+        return [
+            //
+        ];
+    }
+}

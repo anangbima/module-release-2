@@ -1,0 +1,33 @@
+<?php
+
+namespace {{namespace}};
+
+use Illuminate\Support\Collection;
+use Modules\DesaModuleTemplate\Services\Shared\ExportService;
+
+class {{class}} extends BaseExporter
+{
+    protected Collection $data;
+
+    public function __construct(ExportService $exportService, Collection $data)
+    {
+        parent::__construct($exportService);
+        $this->data = $data;
+    }
+
+    public function getData(): Collection
+    {
+        return $this->data;
+    }
+
+    public function getHeadings(): array
+    {
+        // Adjust these headings to match your table structure
+        return ['ID', 'Column1', 'Column2'];
+    }
+
+    public function getMapper(): ?\Closure
+    {
+        return fn($row) => array_values($row);
+    }
+}
